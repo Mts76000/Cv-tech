@@ -5,7 +5,9 @@
 get_header();
 ?>
 
-<h1>kbgfjb</h1>
+<section id="home">
+
+</section>
 
 
 

@@ -23,6 +23,38 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
 
-body{
-    background-color: red;
+* {
+	margin: 0;padding: 0;box-sizing: border-box;
+}
+ul,ol {
+	list-style: none;
+}
+
+body {
+	color: black;
+	overflow-x: hidden;
+	font-family: "Roboto", sans-serif;
+	background-color: #fff ;
+	width: 100%;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+a{
+	text-decoration: none;
+}
+
+:root{
+	--blanc: #fff;
+	--bleu :#3F94E4;
+	--orange : #FFAB2B;
+}
+
+.wrap {max-width: 1200px; width: 100%;margin : 0 auto;}
+
+
+#home{
+	height: 100vh;
 }

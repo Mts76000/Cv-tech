@@ -1,5 +1,8 @@
 
 // SCSS
- import './asset/style.scss'; 
+ import './asset/css/style.scss';
+ import './asset/css/header.scss';
+ import './asset/css/footer.scss';
 
-console.log('test');
+ // JS
+import './asset/js/burger-menu.js';

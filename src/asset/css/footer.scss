@@ -1,0 +1,33 @@
+/*footer*/
+
+
+#footer{
+height:80px;
+width:100%;
+  display: flex;
+}
+
+#footer .wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer nav ul {
+  display: flex;
+ gap: 2rem;
+}
+
+#footer nav ul a {
+  color: black;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  transition:all 0.2s ease-in-out;
+}
+
+#footer nav ul a:hover {
+color: var(--bleu);
+
+}
+

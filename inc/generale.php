@@ -141,6 +141,8 @@ function cv_tech_scripts() {
 
 	wp_enqueue_style( 'style-scss', get_template_directory_uri() . '/public/dist/css/global.bundle.css', array(), _S_VERSION );
 
+	wp_enqueue_style( 'font-awesome',  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), _S_VERSION );
+
 	wp_enqueue_style( 'cv-tech-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'cv-tech-style', 'rtl', 'replace' );
 
