@@ -1,6 +1,22 @@
 form label {
   display:block;
 }
+
+form #login{
+  margin-bottom:1rem ;
+}
+
+form #password{
+  margin-bottom:1rem ;
+}
+
+#error_login{
+color: red;
+}
+
+.error{
+  margin-bottom: 1rem;
+}
 form input, form textarea {
   width: 100%;
   padding: 1rem;

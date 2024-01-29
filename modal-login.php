@@ -10,8 +10,10 @@
             <main class="modal__content" id="modal-1-content">
                 <form id="form_login" action="" method="post" novalidate>
                     <input type="text" id="login" name="login" placeholder="Email or login">
-                    <span class="error" id="error_login"></span>
                     <input type="password" id="password" name="password" placeholder="Mot de passe">
+                    <div class="error">
+                    <span class="error" id="error_login"></span>
+                    </div>
                     <input type="submit">
                 </form>
             </main>
