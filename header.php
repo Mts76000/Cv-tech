@@ -35,7 +35,7 @@
                 <li class="desk"><a class="a" href="<?php echo path('Home'); ?>">HOME</a></li>
                 <li class="desk"><a  class="a" href="#" title="">CANDIDATER</a></li>
                 <li class="desk"><a  class="a" href="#" title="">CONTACT</a></li>
-                <li class="desk btn-header"><a  class="a" href="#" title="">CONNEXION</a></li>
+                <li class="desk btn-header"><a id="js_modal_login" class="a" href="#" title="">CONNEXION</a></li>
                 <li class="desk  btn-header" ><a  class="a" href="#" title="">INSCRIPTION</a></li>
 
             </ul>
@@ -56,6 +56,10 @@
 
 
 </header>
+
+
+<?php include('modal-login.php'); ?>
+
 
 
 

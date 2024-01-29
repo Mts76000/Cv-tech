@@ -148,6 +148,15 @@ function cv_tech_scripts() {
 
 	wp_enqueue_script( 'cv-tech-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+    wp_add_inline_script('cv-tech-navigation', ' const MYSCRIPT = ' . json_encode(array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'home'    =>  path('/'),
+            'theme'   => get_template_directory_uri()
+        )) , 'before');
+
+    wp_enqueue_script( 'micro-modal', 'https://unpkg.com/micromodal/dist/micromodal.min.js', array(), _S_VERSION, true );
+
+
 	wp_enqueue_script( 'global-js', get_template_directory_uri() . '/public/dist/js/global.bundle.js', array(), _S_VERSION, true );
     
 

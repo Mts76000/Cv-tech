@@ -98,3 +98,16 @@ function verifChamp($id, $champ )
         return 'Aucune valeur';
     }
 }
+
+
+function showJson($data)
+{
+    header('Content-type: application/json');
+    $json = json_encode($data);
+    if($json){
+        die($json);
+    }
+    else {
+        die('Error in json encoding');
+    }
+}
