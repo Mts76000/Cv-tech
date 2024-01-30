@@ -34,7 +34,6 @@
                 </li>
                 <li class="desk"><a class="a" href="<?php echo path('Home'); ?>">HOME</a></li>
                 <li class="desk"><a  class="a" href="#" title="">CANDIDATER</a></li>
-                <li class="desk"><a  class="a" href="#" title="">CONTACT</a></li>
 
 
 
@@ -65,7 +64,6 @@
 
             <a href="#"><li> <i class="fa-solid fa-house"></i> HOME</li></a>
             <a href="#" title=""> <li><i class="fa-solid fa-file"></i>CANDIDATER</li></a>
-            <a href="#" title=""><li><i class="fa-solid fa-address-book"></i> CONTACT</li></a>
             <a href="#" title=""><li class="connexion"><i class="fa-solid fa-user"></i> CONNEXION</li></a>
             <a href="#" title=""><li><i class="fa-solid fa-user"></i>INSCRIPTION</li></a>
             <a href=""><li class="close"><i class="fa-solid fa-backward"></i> Revenir au site</li></a>

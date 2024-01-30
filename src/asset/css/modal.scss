@@ -24,6 +24,8 @@ color: red;
 
 
 
+
+
 .error{
   margin-bottom: 1rem;
 }
@@ -190,4 +192,25 @@ form input, form textarea {
   will-change: transform;
 }
 
+#modal-3-content{
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+a{
+  color: white;
+  font-size: 20px;
+  padding: 0.5rem 0rem;
+  background: var(--bleu);
+  width: 50%;
+  text-align: center;
+  border-radius: 50px;
+  transition: 0.5s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+  a:hover{
+    background: var(--orange);
+  }
+}
 

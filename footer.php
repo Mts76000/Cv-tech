@@ -17,7 +17,6 @@
                 <ul>
                     <li><a href="">Mentions légales</a></li>
                     <li><a href="">FAQ</a></li>
-                    <li><a href="">Contactez-nous</a></li>
                 </ul>
             </nav>
     </div>
