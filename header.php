@@ -42,7 +42,7 @@
                 <?php
                 if ( is_user_logged_in() ) {
 
-                    echo ' <li><a id="modal_test" href="#"><i class="fa-solid fa-user"></i></a></li>';
+                    echo ' <li class="desk"><a id="modal_test" href="#"><i class="fa-solid fa-user"></i></a></li>';
 
                 } else {
 

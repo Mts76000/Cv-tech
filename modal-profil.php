@@ -8,7 +8,7 @@
                 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
             </header>
             <main class="modal__content" id="modal-3-content">
-                    <a href="<?php echo wp_logout_url(); ?>">Déconnexion</a>
+                    <a href="<?php echo wp_logout_url(home_url()); ?>">Déconnexion</a>
             </main>
             <footer class="modal__footer">
             </footer>

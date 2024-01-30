@@ -5,9 +5,6 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validation éventuelle des données (vous pouvez ajouter plus de validation ici)
-
-
     $user_id = wp_create_user($username, $password, $email);
 
 
@@ -35,7 +32,7 @@ if (isset($_POST['submit'])) {
                     <input type="email" id="email" name="email" placeholder="Email">
                     <input type="password" id="password" name="password" placeholder="password">
                     <div class="error">
-                        <span class="error" id="error_login"></span>
+                        <span class="error" id="error_register"></span>
                     </div>
                     <input type="submit" name="submit">
                 </form>
