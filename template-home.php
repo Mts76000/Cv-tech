@@ -3,7 +3,11 @@
  * Template Name: Homepage
  */
 get_header();
+
+
 ?>
+
+
 
     <section id="intro">
         <div class="wrap">

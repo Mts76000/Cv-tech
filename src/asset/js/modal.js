@@ -17,6 +17,7 @@ opener_modal_login.addEventListener('click', function(evt) {
 form_login.addEventListener('submit', function(evt) {
     evt.preventDefault();
     GetFormLoginUser();
+
 });
 
 async function GetFormLoginUser() {
@@ -38,6 +39,24 @@ async function GetFormLoginUser() {
     }
 
 }
+
+
+
+
+// Modal register
+
+const opener_modal_register = document.querySelector('#js_modal_register');
+opener_modal_register.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    MicroModal.show('modal-register');
+
+});
+
+
+
+
+
+
 
 
 

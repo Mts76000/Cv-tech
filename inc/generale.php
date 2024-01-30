@@ -139,12 +139,14 @@ add_action( 'widgets_init', 'cv_tech_widgets_init' );
  */
 function cv_tech_scripts() {
 
-	wp_enqueue_style( 'style-scss', get_template_directory_uri() . '/public/dist/css/global.bundle.css', array(), _S_VERSION );
+
 
 	wp_enqueue_style( 'font-awesome',  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), _S_VERSION );
 
 	wp_enqueue_style( 'cv-tech-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'cv-tech-style', 'rtl', 'replace' );
+
+    wp_enqueue_style( 'style-scss', get_template_directory_uri() . '/public/dist/css/global.bundle.css', array(), _S_VERSION );
 
 	wp_enqueue_script( 'cv-tech-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
@@ -157,8 +159,10 @@ function cv_tech_scripts() {
     wp_enqueue_script( 'micro-modal', 'https://unpkg.com/micromodal/dist/micromodal.min.js', array(), _S_VERSION, true );
 
 
-	wp_enqueue_script( 'global-js', get_template_directory_uri() . '/public/dist/js/global.bundle.js', array(), _S_VERSION, true );
-    
+
+        wp_enqueue_script('global-js', get_template_directory_uri() . '/public/dist/js/global.bundle.js', array(), _S_VERSION, true);
+
+
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -169,4 +173,25 @@ add_action( 'wp_enqueue_scripts', 'cv_tech_scripts' );
 
 
 
+add_action('after_setup_theme', 'disable_admin_bar');
+function disable_admin_bar() {
+    if (!current_user_can('administrator') && !is_admin()) {
+        show_admin_bar(false);
+    }
+}
+
+add_action('show_user_profile', 'remove_profile_fields');
+add_action('edit_user_profile', 'remove_profile_fields');
+function remove_profile_fields($user) {
+    if( !current_user_can('administrator') ) {
+        ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $('#url').parent().parent().remove(); // Remove website field
+                $('#description').parent().parent().remove(); // Remove bio field
+            });
+        </script>
+        <?php
+    }
+}
 

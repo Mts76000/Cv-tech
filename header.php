@@ -13,10 +13,10 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<?php wp_head(); ?>
+    <?php wp_head(); ?>
 </head>
 
 <body>
@@ -35,8 +35,26 @@
                 <li class="desk"><a class="a" href="<?php echo path('Home'); ?>">HOME</a></li>
                 <li class="desk"><a  class="a" href="#" title="">CANDIDATER</a></li>
                 <li class="desk"><a  class="a" href="#" title="">CONTACT</a></li>
-                <li class="desk btn-header"><a id="js_modal_login" class="a" href="#" title="">CONNEXION</a></li>
-                <li class="desk  btn-header" ><a  class="a" href="#" title="">INSCRIPTION</a></li>
+
+
+
+
+                <?php
+                if ( is_user_logged_in() ) {
+
+                    echo ' <li><a id="modal_test" href="#"><i class="fa-solid fa-user"></i></a></li>';
+
+                } else {
+
+                    echo '<li class="desk btn-header"><a id="js_modal_login" class="a" href="#" title="">CONNEXION</a></li>
+                <li class="desk  btn-header" ><a id="js_modal_register" class="a" href="#" title="">INSCRIPTION</a></li>
+          
+                ';
+                }
+                ?>
+
+
+
 
             </ul>
         </nav>
@@ -58,8 +76,15 @@
 </header>
 
 
-<?php include('modal-login.php'); ?>
 
+<?php include('modal-login.php'); ?>
+<?php include('modal-register.php'); ?>
+<?php include('modal-profil.php'); ?>
+
+
+<script>
+    var isUserLoggedIn = <?php echo is_user_logged_in() ? 'true' : 'false'; ?>;
+</script>
 
 
 
