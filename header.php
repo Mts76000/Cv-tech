@@ -41,11 +41,11 @@
                 <?php
                 if ( is_user_logged_in() ) {
 
-                    echo ' <li class="desk"><a id="modal_test" href="#"><i class="fa-solid fa-user"></i></a></li>';
+                    echo ' <li class="desk"><a class="modal_profil" href="#"><i class="fa-solid fa-user"></i></a></li>';
 
                 } else {
 
-                    echo '<li class="desk btn-header"><a id="js_modal_login" class="a" href="#" title="">CONNEXION</a></li>
+                    echo '<li class="desk btn-header"><a  class="a js_modal_login" href="#" title="">CONNEXION</a></li>
                 <li class="desk  btn-header" ><a id="js_modal_register" class="a" href="#" title="">INSCRIPTION</a></li>
           
                 ';
@@ -64,8 +64,21 @@
 
             <a href="#"><li> <i class="fa-solid fa-house"></i> HOME</li></a>
             <a href="#" title=""> <li><i class="fa-solid fa-file"></i>CANDIDATER</li></a>
-            <a href="#" title=""><li class="connexion"><i class="fa-solid fa-user"></i> CONNEXION</li></a>
-            <a href="#" title=""><li><i class="fa-solid fa-user"></i>INSCRIPTION</li></a>
+
+
+            <?php
+            if ( is_user_logged_in() ) {
+
+                echo ' <a class="modal_profil" href="#"><li class="desk"><i class="fa-solid fa-user"></i>Profil</li></a>';
+
+            } else {
+
+                echo ' <a href="#" title="" class="js_modal_login" ><li class="connexion"><i class="fa-solid fa-user"></i> CONNEXION</li></a>
+                 <a href="#" title="" id="js_modal_register" ><li><i class="fa-solid fa-user"></i>INSCRIPTION</li></a>
+          
+                ';
+            }
+            ?>
             <a href=""><li class="close"><i class="fa-solid fa-backward"></i> Revenir au site</li></a>
         </ul>
     </div>

@@ -1,9 +1,14 @@
 
 // modal profil
 
-const opener_profil = document.querySelector('#modal_test');
-opener_profil.addEventListener('click', function(evt) {
-    evt.preventDefault();
-    MicroModal.show('modal-test');
+const profilOpenButtons = document.querySelectorAll('.modal_profil');
+const burger = document.querySelector("#nav_burger");
 
+profilOpenButtons.forEach(function(button) {
+    button.addEventListener('click', function(evt) {
+        evt.preventDefault();
+        burger.classList.remove("opened");
+        MicroModal.show('modal-test');
+    });
 });
+

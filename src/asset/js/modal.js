@@ -6,12 +6,18 @@ const passwordInput = document.querySelector('#password');
 
 // Modal
 MicroModal.init();
-const opener_modal_login = document.querySelector('#js_modal_login');
-opener_modal_login.addEventListener('click', function(evt) {
-    evt.preventDefault();
-    MicroModal.show('modal-login');
 
+const  opener_modal_login = document.querySelectorAll('.js_modal_login');
+const burger = document.querySelector("#nav_burger");
+
+opener_modal_login.forEach(function(button) {
+    button.addEventListener('click', function(evt) {
+        evt.preventDefault();
+        burger.classList.remove("opened");
+        MicroModal.show('modal-login');
+    });
 });
+
 
 // Gestion du formualaire de connexion
 form_login.addEventListener('submit', function(evt) {
