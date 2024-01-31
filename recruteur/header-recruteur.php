@@ -1,14 +1,8 @@
 <?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package cv-tech
- */
-
+if ( !current_user_can('administrator') && !current_user_can('recruteur') ) {
+    wp_redirect( home_url() );
+    exit;
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -34,38 +28,15 @@
                 </li>
                 <li class="desk"><a class="a" href="<?php echo path('/'); ?>">HOME</a></li>
                 <li class="desk"><a  class="a" href="#" title="">CANDIDATER</a></li>
-
-
-
-
-                <?php
-                if ( is_user_logged_in() ) {
-
-                    echo ' <li class="desk"><a id="modal_test" href="#"><i class="fa-solid fa-user"></i></a></li>';
-
-                } else {
-
-                    echo '<li class="desk btn-header"><a id="js_modal_login" class="a" href="#" title="">CONNEXION</a></li>
-                <li class="desk  btn-header" ><a id="js_modal_register" class="a" href="#" title="">INSCRIPTION</a></li>
-          
-                ';
-                }
-                ?>
-
-
-
-
+                <li class="desk"><a id="modal_test" href="#"><i class="fa-solid fa-user"></i></a></li>
             </ul>
         </nav>
     </div>
 
     <div id="nav_burger">
         <ul>
-
             <a href="#"><li> <i class="fa-solid fa-house"></i> HOME</li></a>
             <a href="#" title=""> <li><i class="fa-solid fa-file"></i>CANDIDATER</li></a>
-            <a href="#" title=""><li class="connexion"><i class="fa-solid fa-user"></i> CONNEXION</li></a>
-            <a href="#" title=""><li><i class="fa-solid fa-user"></i>INSCRIPTION</li></a>
             <a href=""><li class="close"><i class="fa-solid fa-backward"></i> Revenir au site</li></a>
         </ul>
     </div>
@@ -75,14 +46,9 @@
 
 
 
-<?php include('modal-login.php'); ?>
-<?php include('modal-register.php'); ?>
-<?php include('modal-profil.php'); ?>
 
 
-<script>
-    var isUserLoggedIn = <?php echo is_user_logged_in() ? 'true' : 'false'; ?>;
-</script>
+
 
 
 
