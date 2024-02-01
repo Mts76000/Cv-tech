@@ -68,3 +68,17 @@ a{
 #feature{
 	height: 100vh;
 }
+
+#legal{
+	text-align: center;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+#legal .wrap{
+	display: flex;
+	gap: 2rem;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

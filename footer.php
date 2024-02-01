@@ -15,7 +15,7 @@
     <div class="wrap">
             <nav>
                 <ul>
-                    <li><a href="">Mentions légales</a></li>
+                    <li><a href="<?php echo path('/mention'); ?>">Mentions légales</a></li>
                     <li><a href="">FAQ</a></li>
                 </ul>
             </nav>
