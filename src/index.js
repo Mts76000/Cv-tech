@@ -11,6 +11,7 @@ import './asset/css/recruteur.scss';
 
 // JS
 import './asset/js/burger-menu.js';
+import './asset/js/modal-contact';
 
 
 if (isUserLoggedIn) {

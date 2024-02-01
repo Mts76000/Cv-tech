@@ -22,6 +22,10 @@
     </div>
 </footer>
 
+<script>
+    var isUserLoggedIn = <?php echo is_user_logged_in() ? 'true' : 'false'; ?>;
+</script>
+
 <?php wp_footer(); ?>
 
 </body>

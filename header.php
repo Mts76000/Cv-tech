@@ -93,9 +93,3 @@
 <?php include('modal-profil.php'); ?>
 
 
-<script>
-    var isUserLoggedIn = <?php echo is_user_logged_in() ? 'true' : 'false'; ?>;
-</script>
-
-
-

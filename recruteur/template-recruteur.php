@@ -2,7 +2,14 @@
 /**
  * Template Name: recruteur
  */
-include 'header-recruteur.php';
+
+
+if ( !current_user_can('administrator') && !current_user_can('recruteur') ) {
+    wp_redirect( home_url() );
+    exit;
+}
+
+get_header();
 
 
 ?>
@@ -51,8 +58,7 @@ include 'header-recruteur.php';
 
             $query = "SELECT * FROM $table_name";
             $results = $wpdb->get_results($query);
-
-
+//debug($results);
 
             if (!empty($results)) {
                 foreach ($results as $row) {
@@ -61,11 +67,11 @@ include 'header-recruteur.php';
                     echo '<td>' . $row->lastName . '</td>';
                     echo '<td>' . $row->firstName . '</td>';
                     echo '<td>' . '07/04/2023' . '</td>';
-                    echo '<td class="action"> <a href="#">' . '<i class="fa-solid fa-address-book" style="color: orange"></i>' . ' </a>';
+                    echo '<td class="action"> <a class="js_modal_contact"  href="#" data-post-id="' . $row->id . '"><i class="fa-solid fa-address-book" style="color: orange"></i>' . ' </a>';
                     echo ' <a href="#">' . '<i class="fa-solid fa-file-pdf" style="color: #02ab6c"></i>' . ' </a>';
                     echo '<a href="#">' . '<i class="fa-solid fa-trash" style="color: red"></i>' . ' </a></td>';
                     echo '</tr>';
-
+                    include 'modal-contact.php';
                 }
             } else {
                 echo '<tr><td colspan="3">Aucun résultat trouvé</td></tr>';
@@ -77,5 +83,10 @@ include 'header-recruteur.php';
 
 
 
+
     </div>
 </section>
+
+
+<?php
+get_footer();

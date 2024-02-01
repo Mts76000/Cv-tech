@@ -28,7 +28,7 @@ if ( !current_user_can('administrator') && !current_user_can('recruteur') ) {
                 </li>
                 <li class="desk"><a class="a" href="<?php echo path('/'); ?>">HOME</a></li>
                 <li class="desk"><a  class="a" href="#" title="">CANDIDATER</a></li>
-                <li class="desk"><a id="modal_test" href="#"><i class="fa-solid fa-user"></i></a></li>
+                <li class="desk"><a class="modal_profil" href="#"><i class="fa-solid fa-user"></i></a></li>
             </ul>
         </nav>
     </div>
@@ -37,6 +37,7 @@ if ( !current_user_can('administrator') && !current_user_can('recruteur') ) {
         <ul>
             <a href="#"><li> <i class="fa-solid fa-house"></i> HOME</li></a>
             <a href="#" title=""> <li><i class="fa-solid fa-file"></i>CANDIDATER</li></a>
+            <a class="modal_profil" href="#"><li class="desk"><i class="fa-solid fa-user"></i>Profil</li></a>
             <a href=""><li class="close"><i class="fa-solid fa-backward"></i> Revenir au site</li></a>
         </ul>
     </div>
@@ -46,8 +47,7 @@ if ( !current_user_can('administrator') && !current_user_can('recruteur') ) {
 
 
 
-
-
+<?php  include('../modal-profil.php'); ?>
 
 
 
