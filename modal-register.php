@@ -1,21 +1,21 @@
 <?php
 
-if (isset($_POST['submit'])) {
-    $username = $_POST['identifiant'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+//if (isset($_POST['submit'])) {
+//    $username = $_POST['login'];
+//    $email = $_POST['email'];
+//    $password = $_POST['password'];
+//
+//    $user_id = wp_create_user($username, $password, $email);
+//
+//    if(! is_wp_error($user_id)) {
+//    } else {
+//        $error_message = $user_id->get_error_message();
+//    }
+//}
+//
+//print_r($_POST);
 
-    $user_id = wp_create_user($username, $password, $email);
-
-
-    if (! is_wp_error($user_id)) {
-    } else {
-        $error_message = $user_id->get_error_message();
-    }
-}
 ?>
-
-
 
 <div class="modal micromodal-slide" id="modal-register" aria-hidden="true">
     <div class="modal__overlay" tabindex="-2" data-micromodal-close>
@@ -27,10 +27,10 @@ if (isset($_POST['submit'])) {
                 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
             </header>
             <main class="modal__content" id="modal-2-content">
-                <form id="form_login" action="" method="post" novalidate>
-                    <input type="text" id="identifiant" name="identifiant" placeholder="Identifiant">
+                <form id="form_register" action="" method="post" novalidate>
+                    <input type="text" id="identifiant" name="login" placeholder="Identifiant">
                     <input type="email" id="email" name="email" placeholder="Email">
-                    <input type="password" id="password" name="password" placeholder="password">
+                    <input type="password" id="register_password" name="password" placeholder="password">
                     <div class="error">
                         <span class="error" id="error_register"></span>
                     </div>

@@ -139,7 +139,7 @@ function validmail($errors,$valeur,$key){
             $errors[$key] = 'Veuillez renseigner un email valide';
         }
     } else {
-        $errors[$key] = 'Veuillez renseigner un email';
+        $errors[$key] = 'Veuillez renseigner un email valide';
     }
     return $errors;
 }
