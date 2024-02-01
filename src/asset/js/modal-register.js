@@ -24,7 +24,10 @@ async function GetFormRegisterUser() {
         error_register.innerHTML = '';
 
         if (data.success) {
-            // window.location.href = MYSCRIPT.home
+
+            MicroModal.close('modal-register');
+            MicroModal.show('modal-login');
+
         } else {
             error_register.innerHTML = data.errors.login || data.errors.email;
         }
