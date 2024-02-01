@@ -1,10 +1,8 @@
 <?php
-
 add_action('wp_ajax_get_register_form','getRegisterFormMaster');
 add_action('wp_ajax_nopriv_get_register_form','getRegisterFormMaster');
 
 function getRegisterFormMaster() {
-//    showJson($_POST);
     $username = sanitize_text_field($_POST['login']);
     $email = sanitize_email($_POST['email']);
     $password = sanitize_text_field($_POST['password']);
@@ -16,14 +14,18 @@ function getRegisterFormMaster() {
     $errors = validmail($errors, $email, 'email');
 
     if(count($errors)===0){
-        $user = wp_create_user( $username, $password, $email );
-        if ( is_wp_error( $user ) ) {
-            $errors['login'] = $user->get_error_message();
+        $user_id = wp_create_user( $username, $password, $email );
+        if ( is_wp_error( $user_id ) ) {
+            $errors['login'] = $user_id->get_error_message();
         } else {
+            $user = new WP_User($user_id);
+            $user->set_role('candidat');
+
             $success = true;
         }
     }
 
-    showJson(array('success' => $success, 'errors' => $errors));
-
+    wp_send_json(array('success' => $success, 'errors' => $errors));
 }
+
+
