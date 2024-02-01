@@ -16,6 +16,8 @@ import './asset/js/modal-contact';
 
 import './asset/js/modal-register.js';
 
+import './asset/js/recruteur';
+
 
 if (isUserLoggedIn) {
  import('./asset/js/modal-profil.js').then(module => {
