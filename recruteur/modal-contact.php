@@ -9,22 +9,9 @@
             </header>
             <main class="modal__content" id="modal-4-content" >
 
-<?php
+                <span class="loader"></span>
 
-//debug($_POST);
-////    $user_id = $_POST;
-////    $query = "SELECT * FROM $table_name WHERE id = $user_id";
-////    $user = $wpdb->get_row($query);
-////
-////
-//        echo '<a href="mailto:'. $user->email  . '">' .  $user->email. ' </a>';
-//        echo $user->phoneNumber;
-//
-
-//            ?>
-
-<!--                <div class="mail"></div>-->
-                <p class="mail"></p>
+                <a href="" class="mail"></a>
                <p class="phone" ></p>
 
             </main>

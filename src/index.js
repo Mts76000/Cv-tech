@@ -18,6 +18,8 @@ import './asset/js/modal-register.js';
 
 import './asset/js/recruteur';
 
+import './asset/js/modal-detail';
+
 
 if (isUserLoggedIn) {
  import('./asset/js/modal-profil.js').then(module => {

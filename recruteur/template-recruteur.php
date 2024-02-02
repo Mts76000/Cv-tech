@@ -68,7 +68,7 @@ get_header();
             <table>
                 <thead>
                 <tr>
-                    <th>Nom</th>
+                    <th  >Nom</th>
                     <th>Prénom</th>
                     <th>Date</th>
                     <th>Action</th>
@@ -85,9 +85,9 @@ get_header();
                 if (!empty($results)) {
                     foreach ($results as $row) {
                         echo '<tr>';
-                        echo '<td>' . $row->lastName . '</td>';
-                        echo '<td>' . $row->firstName . '</td>';
-                        echo '<td>' . '07/04/2023' . '</td>';
+                        echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . $row->lastName . '</td>';
+                        echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . $row->firstName . '</td>';
+                        echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . '07/04/2023' . '</td>';
                         echo '<td class="action"> <a class="js_modal_contact"  href="#" data-post-id="' . $row->id . '"><i class="fa-solid fa-address-book" style="color: orange"></i>' . ' </a>';
                         echo ' <a href="#">' . '<i class="fa-solid fa-file-pdf" style="color: #02ab6c"></i>' . ' </a>';
                         echo '<a href="#">' . '<i class="fa-solid fa-trash" style="color: red"></i>' . ' </a></td>';
@@ -102,10 +102,10 @@ get_header();
                 </tbody>
             </table>
 
-
         </div>
     </section>
 
 
 <?php
+include('modal-detail.php');
 get_footer();
