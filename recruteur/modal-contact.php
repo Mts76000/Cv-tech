@@ -11,16 +11,21 @@
 
 <?php
 
-    $user_id = 1;
-    $query = "SELECT * FROM $table_name WHERE id = $user_id";
-    $user = $wpdb->get_row($query);
+//debug($_POST);
+////    $user_id = $_POST;
+////    $query = "SELECT * FROM $table_name WHERE id = $user_id";
+////    $user = $wpdb->get_row($query);
+////
+////
+//        echo '<a href="mailto:'. $user->email  . '">' .  $user->email. ' </a>';
+//        echo $user->phoneNumber;
+//
 
+//            ?>
 
-        echo '<a href="mailto:'. $user->email  . '">' .  $user->email. ' </a>';
-        echo $user->phoneNumber;
-
-
-            ?>
+<!--                <div class="mail"></div>-->
+                <p class="mail"></p>
+               <p class="phone" ></p>
 
             </main>
             <footer class="modal__footer">

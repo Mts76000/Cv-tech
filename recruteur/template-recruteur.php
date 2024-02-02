@@ -11,7 +11,6 @@ if (!current_user_can('administrator') && !current_user_can('recruteur')) {
 
 get_header();
 
-
 ?>
 
     <section id="tableau">
@@ -63,17 +62,12 @@ get_header();
                 </div>
 
             </div>
-
-            <!--<form action="--><?php //echo path('/') ?><!--" method="get">-->
-            <!--    <input type="search" name="s" value="--><?php //echo esc_attr(get_search_query())?><!--">-->
-            <!--    <input type="submit">-->
-            <!--</form>-->
-
-
+<?php
+//
+?>
             <table>
                 <thead>
                 <tr>
-                    <th><input type="checkbox"></th>
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Date</th>
@@ -91,7 +85,6 @@ get_header();
                 if (!empty($results)) {
                     foreach ($results as $row) {
                         echo '<tr>';
-                        echo '<td>' . '<input type="checkbox">' . '</td>';
                         echo '<td>' . $row->lastName . '</td>';
                         echo '<td>' . $row->firstName . '</td>';
                         echo '<td>' . '07/04/2023' . '</td>';

@@ -18,14 +18,27 @@ function afficherDateEtHeure() {
     minute = (minute < 10) ? "0" + minute : minute;
     seconde = (seconde < 10) ? "0" + seconde : seconde;
 
+
     // Construire les chaînes de texte pour la date et l'heure
     var dateActuelle = jour + "/" + mois + "/" + annee;
     var heureActuelle = heure + ":" + minute + ":" + seconde;
 
-    // Mettre à jour les divs avec les nouvelles valeurs
-    document.getElementById("date").innerHTML = "Date: " + dateActuelle;
-    document.getElementById("heure").innerHTML = "Heure: " + heureActuelle;
+
+    var elementDate = document.getElementById("date");
+    if (elementDate !== null) {
+        elementDate.innerHTML = "Date: " + dateActuelle;
+    }
+
+    var elementHeure = document.getElementById("heure");
+    if (elementHeure !== null) {
+
+        elementHeure.innerHTML = "Heure: " + heureActuelle;
+    }
+
 }
 
 // Mettre à jour la date et l'heure chaque seconde
 setInterval(afficherDateEtHeure, 1000);
+
+
+
