@@ -70,9 +70,10 @@ a{
 }
 
 #legal{
+	background: url("../img/bg.png");
 	text-align: center;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	padding: 2rem;
+
 }
 
 #legal .wrap{
@@ -81,4 +82,9 @@ a{
   flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+#tableau{
+	height: 100vh;
+
 }

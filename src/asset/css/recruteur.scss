@@ -1,43 +1,96 @@
-#tableau h2{
-  margin: 2rem 0rem;
+#tableau .wrap{
+  padding: 3rem 0rem;
 }
 
-#tableau .nb-candidature{
-  padding: 0.7rem;
-  background: var(--bleu);
+#tableau .big{
+  display: flex;
+  justify-content: space-between;
+}
+
+#tableau .box-nb-candidature{
+  padding: 1.5rem;
+  //background: #F8FBFE;
   border-radius: 5px;
-  width: 25%;
-  text-align: center;
-  color: white;
+  width: 30%;
   font-size: 17px;
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+#tableau .box-nb-candidature .titre{
+  color: #616670;
+}
+
+#tableau .box-nb-candidature .left{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#tableau .box-nb-candidature .nb{
+  padding: 1rem 0rem 0rem;
+  font-size: 2rem;
+}
+
+#tableau .box-nb-candidature .right .i{
+  background:#FFAD66 ;
+  padding: 1rem;
+  border-radius: 100px;
+}
+#tableau .box-nb-candidature .right .user{
+  background:var(--bleu) ;
+
+}
+
+
+#tableau .box-nb-candidature i{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 30px;
+  height: 30px;
+}
+
+#tableau .heure{
+  justify-content: center;
+  align-items: center;
+
+
+}
+#tableau .box-nb-candidature .date-heure{
+  font-size: 20px;
+  text-align: center;
+}
+#tableau .box-nb-candidature .date-heure p{
+  padding: 0.5rem;
+}
+
 
 table {
   margin-top: 2rem;
-  font-family: Arial, sans-serif;
-  border-collapse: collapse;
   width: 100%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-}
-
-thead{
+  background: white;
+  border-radius: 10px
 
 }
 
 th, td {
-  
   padding: 12px;
-  border-bottom: 1px solid #ddd;
   text-align: center;
 }
 
 th {
   background-color: #f2f2f2;
   color: #333;
+}
+
+thead{
+  border-radius: 10px;
+
 }
 
 

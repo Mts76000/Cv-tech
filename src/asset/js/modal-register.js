@@ -10,7 +10,6 @@ async function GetFormRegisterUser() {
         method: 'post',
         body: params
     });
-
     let data;
     try {
         data = await response.json();
