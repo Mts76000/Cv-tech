@@ -50,11 +50,41 @@ a{
 	--blanc: #fff;
 	--bleu :#3F94E4;
 	--orange : #FFAB2B;
+	--gris : #888;
 }
 
 .wrap {max-width: 1200px; width: 100%;margin : 0 auto;}
 
 
-#home{
+#intro{
+	height: 90vh;
+}
+
+#info{
 	height: 100vh;
+	background: url("../img/bg.png");
+}
+
+#feature{
+	height: 100vh;
+}
+
+#legal{
+	background: url("../img/bg.png");
+	text-align: center;
+	padding: 2rem;
+
+}
+
+#legal .wrap{
+	display: flex;
+	gap: 2rem;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#tableau{
+	height: 100vh;
+
 }
