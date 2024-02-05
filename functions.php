@@ -7,6 +7,7 @@ require get_template_directory() . '/ajax/ajax-login.php';
 require get_template_directory() . '/ajax/ajax-register.php';
 require get_template_directory() . '/ajax/ajax-contact.php';
 require get_template_directory() . '/ajax/ajax-detail.php';
+require get_template_directory() . '/ajax/ajax-addcv.php';
 
 
 require get_template_directory() . '/inc/extra/template-tags.php';

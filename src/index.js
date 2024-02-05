@@ -5,6 +5,7 @@ import './asset/css/footer.scss';
 import './asset/css/home.scss';
 import './asset/css/modal.scss';
 import './asset/css/recruteur.scss';
+import './asset/css/candidater.scss';
 
 
 
@@ -19,6 +20,8 @@ import './asset/js/modal-register.js';
 import './asset/js/recruteur';
 
 import './asset/js/modal-detail';
+
+import './asset/js/addcv';
 
 
 if (isUserLoggedIn) {

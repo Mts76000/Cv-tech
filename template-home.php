@@ -15,7 +15,7 @@ get_header();
                 <h1>Candidater chez nous avec notre builder de CV</h1>
                 <p>Utilisez notre outil de création de CV en ligne pour simplifier votre candidature chez nous. Construisez votre profil en seulement quelques étapes faciles!</p>
                 <div class="btn-intro">
-                    <a href="">CANDIDATER</a>
+                    <a href="<?php echo path('/candidater'); ?>">CANDIDATER</a>
                     <a href="#info">VOIR PLUS</a>
                 </div>
             </div>

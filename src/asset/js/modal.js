@@ -1,3 +1,5 @@
+console.log('test')
+
 
 const form_login = document.querySelector('#form_login');
 const error_login = document.querySelector('#error_login');

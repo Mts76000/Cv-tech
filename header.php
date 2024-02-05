@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li class="desk"><a class="a" href="<?php echo path('/'); ?>">HOME</a></li>
-                <li class="desk"><a  class="a" href="#" title="">CANDIDATER</a></li>
+                <li class="desk"><a  class="a" href="<?php echo path('/candidater'); ?>" title="">CANDIDATER</a></li>
 
 
 
