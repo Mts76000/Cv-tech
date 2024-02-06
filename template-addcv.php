@@ -13,7 +13,7 @@ get_header();
         <div class="wrap">
         <h2>Identité</h2>
         <input type="text" id="nom" name="nom" placeholder="nom">
-        <input type="text" id="prenom" name="prénom" placeholder="prénom">
+        <input type="text" id="prenom" name="prenom" placeholder="prénom">
         <input type="text" id="adresse" name="adresse" placeholder="adresse">
         <input type="email" id="mail-input" name="mail-input" placeholder="email">
         <input type="tel" id="tel" name="tel" placeholder="tel">
