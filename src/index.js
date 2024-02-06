@@ -16,6 +16,7 @@ import './asset/js/modal-register.js';
 import './asset/js/recruteur';
 import './asset/js/modal-detail';
 import './asset/js/addcv';
+import './asset/js/status';
 
 
 if (isUserLoggedIn) {
