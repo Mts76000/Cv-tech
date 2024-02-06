@@ -26,7 +26,7 @@ async function GetDetailUser() {
         });
         let data = await response.json();
 
-        // console.log(data);
+        console.log(data);
         loaderDetail.classList.add("loader-none");
         prenom.innerHTML = "Prenom : " + data.user.firstName
         nom.innerHTML = "Nom : " + data.user.lastName
@@ -43,7 +43,7 @@ async function GetDetailUser() {
 detailOpenButtons.forEach(function(button) {
     button.addEventListener('click', function(evt) {
         const postId = button.dataset.postId;
-        console.log(postId);
+        // console.log(postId);
         evt.preventDefault();
         params.append('id', postId);
         MicroModal.show('modal-detail');
@@ -51,3 +51,4 @@ detailOpenButtons.forEach(function(button) {
     });
 });
 
+//
