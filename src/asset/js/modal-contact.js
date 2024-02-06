@@ -24,11 +24,6 @@ async function GetContactUser() {
             email.href = "mailto:" + data.user.email;
             phone.innerHTML = "telephone : " + data.user.phoneNumber;
 
-
-
-
-
-
     } catch (error) {
         console.error('Erreur lors de la conversion de la réponse JSON :', error);
     }
@@ -36,7 +31,7 @@ async function GetContactUser() {
 opener_modal_contact.forEach( function(button) {
     button.addEventListener('click', function(evt) {
         const postId = button.dataset.postId;
-        console.log(postId);
+        // console.log(postId);
         evt.preventDefault();
         params.append('id', postId);
         MicroModal.show('modal-contact');

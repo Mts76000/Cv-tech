@@ -15,13 +15,6 @@ async function GetDetailUser() {
         var loaderDetail = document.querySelector('.loader2');
             loaderDetail.classList.remove("loader-none");
 
-
-
-
-
-
-
-
         let response = await fetch(MYSCRIPT.ajaxUrl, {
             method: 'post',
             body: params
@@ -130,4 +123,3 @@ detailOpenButtons.forEach(function(button) {
     });
 });
 
-//

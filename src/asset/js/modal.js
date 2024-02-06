@@ -1,6 +1,3 @@
-console.log('test')
-
-
 const form_login = document.querySelector('#form_login');
 const error_login = document.querySelector('#error_login');
 const loginInput = document.querySelector('#login');
@@ -38,7 +35,6 @@ async function GetFormLoginUser() {
         body: params
     });
      const data = await response.json();
-    console.log(data);
     error_login.innerHTML = '';
     if(data.success) {
         window.location.href = MYSCRIPT.home
@@ -47,8 +43,6 @@ async function GetFormLoginUser() {
     }
 
 }
-
-
 
 
 // Modal register

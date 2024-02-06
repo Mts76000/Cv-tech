@@ -1,6 +1,5 @@
 // Tableaux d'options
 
-
 const tabPermis= [
     "A1",
     "A2",

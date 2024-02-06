@@ -1,9 +1,9 @@
 function afficherDateEtHeure() {
     var maintenant = new Date();
 
-    // Obtenir la date
+
     var jour = maintenant.getDate();
-    var mois = maintenant.getMonth() + 1; // Les mois commencent à 0
+    var mois = maintenant.getMonth() + 1;
     var annee = maintenant.getFullYear();
 
     // Obtenir l'heure
@@ -11,7 +11,7 @@ function afficherDateEtHeure() {
     var minute = maintenant.getMinutes();
     var seconde = maintenant.getSeconds();
 
-    // Ajouter un zéro devant les chiffres < 10 pour une meilleure lisibilité
+
     jour = (jour < 10) ? "0" + jour : jour;
     mois = (mois < 10) ? "0" + mois : mois;
     heure = (heure < 10) ? "0" + heure : heure;
@@ -19,7 +19,7 @@ function afficherDateEtHeure() {
     seconde = (seconde < 10) ? "0" + seconde : seconde;
 
 
-    // Construire les chaînes de texte pour la date et l'heure
+
     var dateActuelle = jour + "/" + mois + "/" + annee;
     var heureActuelle = heure + ":" + minute + ":" + seconde;
 
@@ -37,7 +37,6 @@ function afficherDateEtHeure() {
 
 }
 
-// Mettre à jour la date et l'heure chaque seconde
 setInterval(afficherDateEtHeure, 1000);
 
 

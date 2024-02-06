@@ -15,17 +15,8 @@ function getrecord_cv()
 
     //RESUME
     $userid = $user->ID;
-//    $user = $user->ID;
-//    $prenom = trim(strip_tags($_POST['prenom']));
-//    $email = trim(strip_tags($_POST['mail-input']));
-//    $adresse = trim(strip_tags($_POST['adresse']));
-//    $tel = trim(strip_tags($_POST['tel']));
-//    $birthday = trim(strip_tags($_POST['birthday']));
-//
-//
-//
-//
-//
+
+
     $wpdb->insert(
         'wp_cvtech_resume',
         array(
@@ -37,10 +28,7 @@ function getrecord_cv()
 
 
     // ID RESUME RECUP
-
-
     global $wpdb;
-    $table_name = $wpdb->prefix . 'resume';
     $query = "SELECT id FROM wp_cvtech_resume WHERE idUser = $userid";
     $idREsume = $wpdb->get_row($query);
 
@@ -79,8 +67,6 @@ function getrecord_cv()
     $dipEnd = $_POST['dip_end'];
 
 
-//    $alldiplome = array();
-
     for ($i = 0; $i < count($diplomes); $i++) {
         $alldiplome[] = array(
             'title' => sanitize_text_field($diplomes[$i]),
@@ -112,10 +98,7 @@ function getrecord_cv()
     }
 
 
-
-
     // EXPERIENCE
-
     $experiences = $_POST['experience'];
     $expLocation = $_POST['exp_location'];
     $poste = $_POST['poste'];
@@ -311,10 +294,12 @@ function getrecord_cv()
         }
 
 
+
 //     Validation finale
     if (count($errors) === 0) {
         $success = true;
     }
+
 
     // Affichage du résultat en format JSON
     showJson(

@@ -62,9 +62,7 @@ get_header();
                 </div>
 
             </div>
-<?php
-//
-?>
+
             <table>
                 <thead>
                 <tr>

@@ -1,5 +1,3 @@
-console.log('appjs')
-
 const form_register = document.querySelector('#form_register');
 
 let params = new FormData();
