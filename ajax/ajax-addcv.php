@@ -7,6 +7,43 @@ function getrecord_cv()
 
     $errors = array();
     $success = false;
+    global $wpdb;
+
+    $user = wp_get_current_user();
+    $date = current_time('mysql');
+
+
+    //RESUME
+    $userid = $user->ID;
+//    $user = $user->ID;
+//    $prenom = trim(strip_tags($_POST['prenom']));
+//    $email = trim(strip_tags($_POST['mail-input']));
+//    $adresse = trim(strip_tags($_POST['adresse']));
+//    $tel = trim(strip_tags($_POST['tel']));
+//    $birthday = trim(strip_tags($_POST['birthday']));
+//
+//
+//
+//
+//
+    $wpdb->insert(
+        'wp_cvtech_resume',
+        array(
+            'idUser' => sanitize_text_field($userid),
+            'created_at' => $date,
+
+        ),
+    );
+
+
+    // ID RESUME RECUP
+
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'resume';
+    $query = "SELECT id FROM wp_cvtech_resume WHERE idUser = $userid";
+    $idREsume = $wpdb->get_row($query);
+
 
 
     // IDENTITY
@@ -19,19 +56,18 @@ function getrecord_cv()
 
 
 
-    global $wpdb;
-
     $wpdb->insert(
         'wp_cvtech_identity',
         array(
-            'lastName' => sanitize_text_field($nom),
+            'idResume' => $idREsume->id,
             'firstName' => sanitize_text_field($prenom),
+            'lastName' => sanitize_text_field($nom),
             'location' => sanitize_text_field($adresse),
             'email' => sanitize_text_field($email),
             'phoneNumber' => sanitize_text_field($tel),
             'birthday' => sanitize_text_field($birthday),
+
         ),
-        array('%s', '%s', '%s', '%s', '%d', '%s')
     );
 
     // DIPLOMA
@@ -43,7 +79,7 @@ function getrecord_cv()
     $dipEnd = $_POST['dip_end'];
 
 
-    $alldiplome = array();
+//    $alldiplome = array();
 
     for ($i = 0; $i < count($diplomes); $i++) {
         $alldiplome[] = array(
@@ -63,6 +99,7 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_diploma',
                 array(
+                    'idResume' => $idREsume->id,
                     'diplomaName' => $item['title'],
                     'schoolLocation' => $item['location'],
                     'school' => $item['school'],
@@ -102,6 +139,7 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_professional_experience',
                 array(
+                    'idResume' => $idREsume->id,
                     'peName' => $item['title'],
                     'peLocation' => $item['location'],
                     'pePositionHeld' => $item['poste'],
@@ -181,10 +219,11 @@ function getrecord_cv()
 
     // RESEAUX
     $reseaux = $_POST['reseaux'];
+    $reseauxUrl = $_POST['url'];
     $allreseaux = array();
 
     for ($i = 0; $i < count($reseaux); $i++) {
-        $allreseaux[] = sanitize_text_field($reseaux[$i]);
+        $allreseaux[] = sanitize_text_field($reseaux[$i])   ;
     }
 
     foreach ($allreseaux as $item) {
@@ -238,6 +277,7 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_hobbies',
                 array(
+                    'idResume' => $idREsume->id,
                     'hobbieName' => $item,
                 ),
                 array('%s')
@@ -262,6 +302,7 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_other',
                 array(
+                    'idResume' => $idREsume->id,
                     'otherDetails' => $item['autre'],
                     'otherName' => $item['titleAutre'],
                 ),

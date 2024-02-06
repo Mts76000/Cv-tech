@@ -7,19 +7,19 @@
 get_header();
 
 ?>
-
+<section id="formcv">
 
     <form action="" method="post" id="theformulaire">
         <div class="wrap">
         <h2>Identité</h2>
         <input type="text" id="nom" name="nom" placeholder="nom">
-        <input type="text" id="prenom" name="prénom" placeholder="prénom">
+        <input type="text" id="prenom" name="prenom" placeholder="prénom">
         <input type="text" id="adresse" name="adresse" placeholder="adresse">
         <input type="email" id="mail-input" name="mail-input" placeholder="email">
         <input type="tel" id="tel" name="tel" placeholder="tel">
             <span>date de naissance</span>
         <input type="date" id="birthday" name="birthday" placeholder="birthday">
-
+            <hr>
 
 
         <h2>Formation(s)</h2>
@@ -36,14 +36,14 @@ get_header();
                 <input type="date" placeholder="date de debut" name="dip_start[]">
                 <span>date de fin</span>
                 <input type="date" placeholder="date de fin" name="dip_end[]">
-                <hr>
+
             </div>
 
 
         </div>
 
         <button id="btn_add_formation">Add Formation</button>
-
+            <hr>
 
         <h2>Expérience(s)</h2>
 
@@ -57,14 +57,13 @@ get_header();
                 <input type="date" name="exp_start[]" placeholder="exp_start">
                 <span>date de fin</span>
                 <input type="date" name="exp_end[]" placeholder="exp_end">
-                <hr>
             </div>
 
 
         </div>
 
         <button id="btn_add_experience">Add Experience</button>
-
+            <hr>
         <h2>Permis</h2>
 
         <div id="response_permis">
@@ -191,6 +190,8 @@ get_header();
                     <option value="GitHub">GitHub</option>
                 </select>
 
+                <input type="text" name="url[]" placeholder="lien">
+
             </div>
         </div>
 
@@ -235,7 +236,6 @@ get_header();
 
             <div>
                 <input type="text" name="hobbies[]" placeholder="hobbies">
-                <hr>
             </div>
 
 
@@ -250,7 +250,7 @@ get_header();
             <div>
                 <input type="text" name="title_autre[]" placeholder="title_autre">
                 <textarea type="text" name="autre[]" placeholder="autre"></textarea>
-                <hr>
+
             </div>
         </div>
 
@@ -258,4 +258,15 @@ get_header();
         </div>
     </form>
 
+</section>
+
 <?php get_footer();
+
+
+
+
+
+
+
+
+
