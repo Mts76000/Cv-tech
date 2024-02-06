@@ -11,7 +11,7 @@ get_header();
 ?>
 
 
-    <section id="faq">
+    <section id="legal">
         <div class="wrap">
             <h2>FAQ</h2>
 

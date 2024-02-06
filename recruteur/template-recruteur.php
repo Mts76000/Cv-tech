@@ -76,7 +76,7 @@ get_header();
 
                 <?php
                 $table_name = $wpdb->prefix . 'identity';
-                $query = "SELECT * FROM $table_name";
+                $query = "SELECT * FROM $table_name WHERE status = 1;";
                 $results = $wpdb->get_results($query);
                 //debug($results);
 
@@ -88,7 +88,7 @@ get_header();
                         echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . '07/04/2023' . '</td>';
                         echo '<td class="action"> <a class="js_modal_contact"  href="#" data-post-id="' . $row->id . '"><i class="fa-solid fa-address-book" style="color: orange"></i>' . ' </a>';
                         echo ' <a href="#">' . '<i class="fa-solid fa-file-pdf" style="color: #02ab6c"></i>' . ' </a>';
-                        echo '<a href="#">' . '<i class="fa-solid fa-trash" style="color: red"></i>' . ' </a></td>';
+                        echo '<a href="#">' . '<i class="fa-solid fa-trash" style="color: red" data-post-id="' . $row->id . '"></i>' . ' </a></td>';
                         echo '</tr>';
                         include 'modal-contact.php';
                     }
