@@ -76,7 +76,7 @@ get_header();
 
                 <?php
                 $table_name = $wpdb->prefix . 'identity';
-                $query = "SELECT * FROM $table_name WHERE status = 1;";
+                $query = "SELECT * FROM $table_name WHERE status = 0;";
                 $results = $wpdb->get_results($query);
                 //debug($results);
 
