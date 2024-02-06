@@ -10,12 +10,9 @@
             <main class="modal__content" id="modal-5-content" >
 
                 <span class="loader2"></span>
+                <div class="main">
 
-                <p class="firstName" ></p>
-                <p class="lastName" ></p>
-                <p class="location" ></p>
-                <p class="email"></p>
-                <p class="tel" ></p>
+                </div>
 
             </main>
             <footer class="modal__footer">
