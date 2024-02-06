@@ -143,3 +143,15 @@ function validmail($errors,$valeur,$key){
     }
     return $errors;
 }
+
+
+function recupDetail($wpdb, $table_name_suffix, $idResume, &$name1, &$name_data) {
+    $table_name = $wpdb->prefix . $table_name_suffix;
+    $query = "SELECT * FROM $table_name WHERE idResume = $idResume";
+    $name1 = $wpdb->get_results($query);
+
+    $name_data = array();
+    foreach ($name1 as $name) {
+        $name_data[] = $name;
+    }
+}
