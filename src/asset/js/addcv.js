@@ -146,27 +146,27 @@ if (btn_add_formation !== null) {
         const div = document.createElement('div');
         const input1 = document.createElement('input');
         input1.type = 'text';
-        input1.name = 'school'
+        input1.name = 'school[]'
         input1.placeholder = 'school'
         const input2 = document.createElement('input');
         input2.type = 'text';
-        input2.name = 'dip_location'
+        input2.name = 'dip_location[]'
         input2.placeholder = 'dip_location'
         const input3 = document.createElement('input');
         input3.type = 'text';
-        input3.name = 'diplome'
+        input3.name = 'diplome[]'
         input3.placeholder = 'diplome'
         const input4 = document.createElement('input');
         input4.type = 'text';
-        input4.name = 'status'
+        input4.name = 'status[]'
         input4.placeholder = 'status'
         const input5 = document.createElement('input');
         input5.type = 'date';
-        input5.name = 'dip_start'
+        input5.name = 'dip_start[]'
         input5.placeholder = 'dip_start'
         const input6 = document.createElement('input');
         input6.type = 'date';
-        input6.name = 'dip_end'
+        input6.name = 'dip_end[]'
         input6.placeholder = 'dip_end'
 
         div.appendChild(input1);
@@ -273,13 +273,20 @@ if (btn_add_reseaux !== null) {
         const select = document.createElement('select');
         select.name = 'reseaux[]';
 
+
         tabReseauxSociaux.forEach((reseau) => {
             const option = document.createElement('option');
             option.textContent = reseau;
             select.appendChild(option);
         });
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'url[]'
+        input.placeholder = 'lien'
+
 
         div.appendChild(select);
+        div.appendChild(input);
         response_reseaux.append(div);
     });
 

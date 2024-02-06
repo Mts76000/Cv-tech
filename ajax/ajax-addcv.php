@@ -79,7 +79,7 @@ function getrecord_cv()
     $dipEnd = $_POST['dip_end'];
 
 
-    $alldiplome = array();
+//    $alldiplome = array();
 
     for ($i = 0; $i < count($diplomes); $i++) {
         $alldiplome[] = array(
@@ -219,10 +219,11 @@ function getrecord_cv()
 
     // RESEAUX
     $reseaux = $_POST['reseaux'];
+    $reseauxUrl = $_POST['url'];
     $allreseaux = array();
 
     for ($i = 0; $i < count($reseaux); $i++) {
-        $allreseaux[] = sanitize_text_field($reseaux[$i]);
+        $allreseaux[] = sanitize_text_field($reseaux[$i])   ;
     }
 
     foreach ($allreseaux as $item) {
