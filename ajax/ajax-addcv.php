@@ -19,7 +19,9 @@ function getrecord_cv()
     // ID RESUME RECUP
     global $wpdb;
     $query = "SELECT id FROM wp_cvtech_resume WHERE idUser = $userid";
-    $idREsume = $wpdb->get_row($query);
+    $idResume = $wpdb->get_row($query);
+
+    $idREsume  = $idResume->id;
 
 
     // IDENTITY
@@ -52,13 +54,14 @@ function getrecord_cv()
     }
 
     foreach ($alldiplome as $item) {
-        if (empty($item['title']) || empty($item['location']) || empty($item['dip_start']) || empty($item['dip_end']) || empty($item['status']) || empty($item['school'] )) {
+        if (empty($item['title']) || empty($item['location']) || empty($item['dip_start']) || empty($item['dip_end']) || empty($item['status']) || empty($item['school'])) {
             $errors['diplomes'][] = 'Tous les champs doivent être remplis pour chaque diplôme.';
         } else {
             $wpdb->insert(
                 'wp_cvtech_diploma',
                 array(
-                    'idResume' => $idREsume->id,
+//                    'idResume' => $idREsume->id,
+                    'idResume' => $userid,
                     'diplomaName' => $item['title'],
                     'schoolLocation' => $item['location'],
                     'school' => $item['school'],
@@ -66,6 +69,15 @@ function getrecord_cv()
                     'diplomaStart' => $item['dip_start'],
                     'diplomaEndYear' => $item['dip_end'],
                 ),
+                array(
+                    '%d', // idResume
+                    '%s', // diplomaName
+                    '%s', // schoolLocation
+                    '%s', // school
+                    '%s', // diplomastatus
+                    '%s', // diplomaStart
+                    '%s'  // diplomaEndYear
+                )
             );
         }
     }
@@ -95,14 +107,21 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_professional_experience',
                 array(
-                    'idResume' => $idREsume->id,
+                    'idResume' => $userid,
                     'peName' => $item['title'],
                     'peLocation' => $item['location'],
                     'pePositionHeld' => $item['poste'],
                     'peStart' => $item['exp_start'],
                     'peEnd' => $item['exp_end'],
                 ),
-                array('%s', '%s', '%s', '%s', '%s')
+                array(
+                    '%d', // idResume
+                    '%s', // peName
+                    '%s', // peLocation
+                    '%s', // pePositionHeld
+                    '%s', // peStart
+                    '%s'  // peEnd
+                )
             );
         }
     }
@@ -126,10 +145,11 @@ function getrecord_cv()
                     $wpdb->insert(
                         'wp_cvtech_driving_license',
                         array(
+
                             'dlName' => $item,
-                            'idResume' => $idREsume->id,
+           'idResume' => $userid,
                         ),
-                        array('%s')
+                        array('%s', '%d')
                     );
                     $selectedPermis[] = $item;
                     $countPermis++;
@@ -164,9 +184,9 @@ function getrecord_cv()
                         'wp_cvtech_soft_skill',
                         array(
                             'ssName' => $item,
-                            'idResume' => $idREsume->id,
+                            'idResume' => $userid,
                         ),
-                        array('%s')
+                        array('%s', '%d')
                     );
                     $selectedSoftSkills[] = $item;
                     $countSoftSkills++;
@@ -201,9 +221,9 @@ function getrecord_cv()
                         'wp_cvtech_hard_skill',
                         array(
                             'hsName' => $item,
-                            'idResume' => $idREsume->id,
+                            'idResume' => $userid,
                         ),
-                        array('%s')
+                        array('%s', '%d')
                     );
                     $selectedHardSkills[] = $item;
                     $countHardSkills++;
@@ -238,9 +258,9 @@ function getrecord_cv()
                         'wp_cvtech_social_network',
                         array(
                             'snName' => $item,
-                            'idResume' => $idREsume->id,
+                            'idResume' => $userid,
                         ),
-                        array('%s')
+                        array('%s', '%d')
                     );
                     $selectedReseaux[] = $item;
                     $countReseaux++;
@@ -274,9 +294,9 @@ function getrecord_cv()
                         'wp_cvtech_language',
                         array(
                             'language' => $item,
-                            'idResume' => $idREsume->id,
+                            'idResume' => $userid,
                         ),
-                        array('%s')
+                        array('%s', '%d')
                     );
                     $selectedLanguages[] = $item;
                     $countLanguages++;
@@ -306,10 +326,11 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_hobbies',
                 array(
-                    'idResume' => $idREsume->id,
+         'idResume' => $userid,
+                    'idResume' => $userid,
                     'hobbieName' => $item,
                 ),
-                array('%s')
+                array('%s', '%d')
             );
         }
     }
@@ -328,37 +349,32 @@ function getrecord_cv()
     }
 
     foreach ($allautre as $item) {
-
         $wpdb->insert(
             'wp_cvtech_other',
             array(
-                'idResume' => $idREsume->id,
+                'idResume' => $userid,
                 'otherDetails' => $item['autre'],
                 'otherName' => $item['titleAutre'],
             ),
-            array('%s', '%s')
+            array('%d','%s', '%s')
         );
     }
 
 
-
-
-//     Validation finale
-if (count($errors) === 0) {
-
-    $wpdb->insert(
-        'wp_cvtech_resume',
-        array(
+    if (count($errors) === 0) {
+        $wpdb->insert(
+            'wp_cvtech_resume',
+            array(
             'idUser' => sanitize_text_field($userid),
             'created_at' => $date,
+            ),
+            array('%d', '%s')
+        );
 
-        ),
-    );
-
-    $wpdb->insert(
-        'wp_cvtech_identity',
-        array(
-            'idResume' => $idREsume->id,
+        $wpdb->insert(
+            'wp_cvtech_identity',
+            array(
+            'idResume' => $userid,
             'firstName' => sanitize_text_field($prenom),
             'lastName' => sanitize_text_field($nom),
             'location' => sanitize_text_field($adresse),
@@ -366,19 +382,19 @@ if (count($errors) === 0) {
             'phoneNumber' => sanitize_text_field($tel),
             'birthday' => sanitize_text_field($birthday),
 
-        ),
-    );
+            ),
+            array('%d', '%s', '%s', '%s', '%s', '%s', '%s')
+        );
 
 
-    $success = true;
-}
+        $success = true;
+    }
 
 // Affichage du résultat en format JSON
-showJson(
-    array(
+    showJson(
+        array(
         'errors' => $errors,
         'success' => $success,
-    )
-);
+        )
+    );
 }
-
