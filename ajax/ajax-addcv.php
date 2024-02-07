@@ -66,6 +66,15 @@ function getrecord_cv()
                     'diplomaStart' => $item['dip_start'],
                     'diplomaEndYear' => $item['dip_end'],
                 ),
+                array(
+                    '%d', // idResume
+                    '%s', // diplomaName
+                    '%s', // schoolLocation
+                    '%s', // school
+                    '%s', // diplomastatus
+                    '%s', // diplomaStart
+                    '%s'  // diplomaEndYear
+                )
             );
         }
     }
@@ -102,7 +111,14 @@ function getrecord_cv()
                     'peStart' => $item['exp_start'],
                     'peEnd' => $item['exp_end'],
                 ),
-                array('%s', '%s', '%s', '%s', '%s')
+                array(
+                    '%d', // idResume
+                    '%s', // peName
+                    '%s', // peLocation
+                    '%s', // pePositionHeld
+                    '%s', // peStart
+                    '%s'  // peEnd
+                )
             );
         }
     }
@@ -129,7 +145,7 @@ function getrecord_cv()
                             'dlName' => $item,
                             'idResume' => $idREsume->id,
                         ),
-                        array('%s')
+                        array('%s', '%d')
                     );
                     $selectedPermis[] = $item;
                     $countPermis++;
@@ -166,7 +182,8 @@ function getrecord_cv()
                             'ssName' => $item,
                             'idResume' => $idREsume->id,
                         ),
-                        array('%s')
+                        array('%s', '%d')
+
                     );
                     $selectedSoftSkills[] = $item;
                     $countSoftSkills++;
@@ -203,7 +220,8 @@ function getrecord_cv()
                             'hsName' => $item,
                             'idResume' => $idREsume->id,
                         ),
-                        array('%s')
+                        array('%s', '%d')
+
                     );
                     $selectedHardSkills[] = $item;
                     $countHardSkills++;
@@ -240,7 +258,8 @@ function getrecord_cv()
                             'snName' => $item,
                             'idResume' => $idREsume->id,
                         ),
-                        array('%s')
+                        array('%s', '%d')
+
                     );
                     $selectedReseaux[] = $item;
                     $countReseaux++;
@@ -276,7 +295,8 @@ function getrecord_cv()
                             'language' => $item,
                             'idResume' => $idREsume->id,
                         ),
-                        array('%s')
+                        array('%s', '%d')
+
                     );
                     $selectedLanguages[] = $item;
                     $countLanguages++;
@@ -309,7 +329,8 @@ function getrecord_cv()
                     'idResume' => $idREsume->id,
                     'hobbieName' => $item,
                 ),
-                array('%s')
+                array('%s', '%d')
+
             );
         }
     }
@@ -336,14 +357,12 @@ function getrecord_cv()
                 'otherDetails' => $item['autre'],
                 'otherName' => $item['titleAutre'],
             ),
-            array('%s', '%s')
+            array('%d','%s', '%s')
+
         );
     }
 
 
-
-
-//     Validation finale
 if (count($errors) === 0) {
 
     $wpdb->insert(
@@ -351,8 +370,8 @@ if (count($errors) === 0) {
         array(
             'idUser' => sanitize_text_field($userid),
             'created_at' => $date,
-
         ),
+        array('%d', '%s')
     );
 
     $wpdb->insert(
@@ -367,6 +386,7 @@ if (count($errors) === 0) {
             'birthday' => sanitize_text_field($birthday),
 
         ),
+        array('%d', '%s', '%s', '%s', '%s', '%s', '%s')
     );
 
 
