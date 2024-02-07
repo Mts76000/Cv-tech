@@ -13,12 +13,13 @@ function getrecord_cv()
     $date = current_time('mysql');
 
     //RESUME
-    $userid = $user->ID;
+    // Sécurisation de l'identifiant de l'utilisateur
+    $userid = absint($user->ID);
 
 
     // ID RESUME RECUP
     global $wpdb;
-    $query = "SELECT id FROM wp_cvtech_resume WHERE idUser = $userid";
+    $query = $wpdb->prepare("SELECT id FROM wp_cvtech_resume WHERE idUser = %d", $userid);
     $idResume = $wpdb->get_row($query);
 
     $idREsume  = $idResume->id;
@@ -60,7 +61,6 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_diploma',
                 array(
-//                    'idResume' => $idREsume->id,
                     'idResume' => $userid,
                     'diplomaName' => $item['title'],
                     'schoolLocation' => $item['location'],
@@ -147,7 +147,7 @@ function getrecord_cv()
                         array(
 
                             'dlName' => $item,
-           'idResume' => $userid,
+                            'idResume' => $userid,
                         ),
                         array('%s', '%d')
                     );
@@ -326,7 +326,7 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_hobbies',
                 array(
-         'idResume' => $userid,
+                    'idResume' => $userid,
                     'idResume' => $userid,
                     'hobbieName' => $item,
                 ),
@@ -365,8 +365,8 @@ function getrecord_cv()
         $wpdb->insert(
             'wp_cvtech_resume',
             array(
-            'idUser' => sanitize_text_field($userid),
-            'created_at' => $date,
+                'idUser' => sanitize_text_field($userid),
+                'created_at' => $date,
             ),
             array('%d', '%s')
         );
@@ -374,13 +374,13 @@ function getrecord_cv()
         $wpdb->insert(
             'wp_cvtech_identity',
             array(
-            'idResume' => $userid,
-            'firstName' => sanitize_text_field($prenom),
-            'lastName' => sanitize_text_field($nom),
-            'location' => sanitize_text_field($adresse),
-            'email' => sanitize_text_field($email),
-            'phoneNumber' => sanitize_text_field($tel),
-            'birthday' => sanitize_text_field($birthday),
+                'idResume' => $userid,
+                'firstName' => sanitize_text_field($prenom),
+                'lastName' => sanitize_text_field($nom),
+                'location' => sanitize_text_field($adresse),
+                'email' => sanitize_text_field($email),
+                'phoneNumber' => sanitize_text_field($tel),
+                'birthday' => sanitize_text_field($birthday),
 
             ),
             array('%d', '%s', '%s', '%s', '%s', '%s', '%s')
@@ -393,8 +393,8 @@ function getrecord_cv()
 // Affichage du résultat en format JSON
     showJson(
         array(
-        'errors' => $errors,
-        'success' => $success,
+            'errors' => $errors,
+            'success' => $success,
         )
     );
 }

@@ -26,13 +26,14 @@ get_header();
 
             <?php
             global $wpdb;
-            $table_name = $wpdb->prefix . 'identity';
-            $count_query = "SELECT COUNT(id) AS total FROM $table_name WHERE status = 0";
-            $total_identity = $wpdb->get_var($count_query);
+            $table_name_identity = $wpdb->prefix . 'identity';
+            $count_query_identity = $wpdb->prepare("SELECT COUNT(id) AS total FROM $table_name_identity WHERE status = %d", 0);
+            $total_identity = $wpdb->get_var($count_query_identity);
 
-            $table_name = $wpdb->prefix . 'users';
-            $count_query = "SELECT COUNT(id) AS total FROM $table_name";
-            $total_users = $wpdb->get_var($count_query);
+            $table_name_users = $wpdb->prefix . 'users';
+            $count_query_users = "SELECT COUNT(id) AS total FROM $table_name_users";
+            $total_users = $wpdb->get_var($count_query_users);
+
             ?>
 
             <div class="big">
@@ -99,7 +100,7 @@ get_header();
                 $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
                 $table_name = $wpdb->prefix . 'identity';
-                $query = "SELECT * FROM $table_name WHERE status = 0 LIMIT $itemsPerPage OFFSET $offset";
+                $query = $wpdb->prepare("SELECT * FROM $table_name WHERE status = %d LIMIT %d OFFSET %d", 0, $itemsPerPage, $offset);
                 $results = $wpdb->get_results($query);
 
 

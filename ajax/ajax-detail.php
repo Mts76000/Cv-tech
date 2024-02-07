@@ -9,7 +9,7 @@ function getDetailMaster()
 
     //secu recruteur
 
-    $id = trim(strip_tags($_POST['id']));
+    $id = absint($_POST['id']);
 
     global $wpdb;
     $table_name = $wpdb->prefix . 'identity';
