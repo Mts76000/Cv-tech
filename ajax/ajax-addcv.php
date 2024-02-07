@@ -127,6 +127,7 @@ function getrecord_cv()
                         'wp_cvtech_driving_license',
                         array(
                             'dlName' => $item,
+                            'idResume' => $idREsume->id,
                         ),
                         array('%s')
                     );
@@ -163,6 +164,7 @@ function getrecord_cv()
                         'wp_cvtech_soft_skill',
                         array(
                             'ssName' => $item,
+                            'idResume' => $idREsume->id,
                         ),
                         array('%s')
                     );
@@ -199,6 +201,7 @@ function getrecord_cv()
                         'wp_cvtech_hard_skill',
                         array(
                             'hsName' => $item,
+                            'idResume' => $idREsume->id,
                         ),
                         array('%s')
                     );
@@ -235,6 +238,7 @@ function getrecord_cv()
                         'wp_cvtech_social_network',
                         array(
                             'snName' => $item,
+                            'idResume' => $idREsume->id,
                         ),
                         array('%s')
                     );
@@ -270,6 +274,7 @@ function getrecord_cv()
                         'wp_cvtech_language',
                         array(
                             'language' => $item,
+                            'idResume' => $idREsume->id,
                         ),
                         array('%s')
                     );
