@@ -9,12 +9,11 @@
 
 #tableau .box-nb-candidature{
   padding: 1.5rem;
-  //background: #F8FBFE;
   border-radius: 5px;
   width: 30%;
   font-size: 17px;
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -116,4 +115,61 @@ td {
   height: 2px;
   width: 50%;
   background:var(--bleu);
+}
+
+
+.pagination-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pagination {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.pagination li {
+  margin: 0 6px;
+}
+
+.pagination li.active a {
+  background: var(--orange);
+}
+
+.pagination li a {
+  --size: 32px;
+  border-radius: 6px;
+  background: var(--bleu);
+  max-width: auto;
+  min-width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 6px;
+  text-decoration: none;
+  color: #f3f3f3; /* Couleur du texte */
+  /* Styles de survol */
+  transition: background 0.3s ease;
+}
+
+.pagination li a:hover {
+  background: var(--orange);
+}
+
+
+@media  screen and (max-width: 1000px) {
+
+  #tableau .big{
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  #tableau .box-nb-candidature{
+    width: 100%;
+  }
 }
