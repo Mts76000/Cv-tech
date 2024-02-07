@@ -75,3 +75,40 @@
     margin: 10px 0;
   }
 }
+
+
+.span{
+  color: red;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.display-span{
+  display: none;
+  height: 0;
+}
+
+
+#suc{
+  display: none;
+  background: url("../img/bg.png");
+  .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+
+  p{
+    background-color: #90EE90;
+    padding: 1.5rem;
+    border-radius: 5px;
+    color: #2E8B57;
+  }
+
+}
+#suc.test1{
+  display: block;
+}
+
+

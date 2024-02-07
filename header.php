@@ -61,8 +61,8 @@
     <div id="nav_burger">
         <ul>
 
-            <a href="#"><li> <i class="fa-solid fa-house"></i> HOME</li></a>
-            <a href="#" title=""> <li><i class="fa-solid fa-file"></i>CANDIDATER</li></a>
+            <a href="<?php echo path('/'); ?>"><li> <i class="fa-solid fa-house"></i> HOME</li></a>
+            <a href="<?php echo path('/candidater'); ?>" title=""> <li><i class="fa-solid fa-file"></i>CANDIDATER</li></a>
 
 
             <?php

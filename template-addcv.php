@@ -7,6 +7,12 @@
 get_header();
 
 ?>
+
+<section id="suc">
+    <div class="wrap">
+    <p class="success"></p>
+    </div>
+</section>
 <section id="formcv">
 
     <form action="" method="post" id="theformulaire">
@@ -42,7 +48,12 @@ get_header();
 
         </div>
 
-        <button id="btn_add_formation">Add Formation</button>
+            <div class="span-div">
+                <span id="span_diplomes" class="span"></span>
+            </div>
+
+
+            <button id="btn_add_formation">Add Formation</button>
             <hr>
 
         <h2>Expérience(s)</h2>
@@ -59,10 +70,14 @@ get_header();
                 <input type="date" name="exp_end[]" placeholder="exp_end">
             </div>
 
-
         </div>
 
-        <button id="btn_add_experience">Add Experience</button>
+            <div  class="span-div">
+                <span id="span_experiences" class="span"></span>
+            </div>
+
+
+            <button id="btn_add_experience">Add Experience</button>
             <hr>
         <h2>Permis</h2>
 
@@ -91,10 +106,14 @@ get_header();
 
             </div>
 
-
         </div>
 
-        <button id="btn_add_permis">Add Permis</button>
+            <div  class="span-div">
+                <span id="span_permis" class="span"></span>
+            </div>
+
+
+            <button id="btn_add_permis">Add Permis</button>
 
         <h2>Soft Skills</h2>
 
@@ -118,11 +137,14 @@ get_header();
                 </select>
 
             </div>
-
-
         </div>
 
-        <button id="btn_add_softskills">Add Softskills</button>
+            <div  class="span-div">
+                <span id="span_softskills" class="span"></span>
+            </div>
+
+
+            <button id="btn_add_softskills">Add Softskills</button>
 
         <h2>Hard Skills</h2>
 
@@ -157,10 +179,14 @@ get_header();
 
             </div>
 
-
         </div>
 
-        <button id="btn_add_hardskills">Add Hardskills</button>
+            <div  class="span-div">
+                <span id="span_hardskills" class="span"></span>
+            </div>
+
+
+            <button id="btn_add_hardskills">Add Hardskills</button>
 
 
         <h2>Réseaux Sociaux</h2>
@@ -195,7 +221,13 @@ get_header();
             </div>
         </div>
 
-        <button id="btn_add_reseaux">Add Réseaux</button>
+
+            <div  class="span-div">
+                <span id="span_reseaux" class="span"></span>
+            </div>
+
+
+            <button id="btn_add_reseaux">Add Réseaux</button>
 
 
         <h2>Language</h2>
@@ -228,7 +260,14 @@ get_header();
             </div>
         </div>
 
-        <button id="btn_add_language">Add Language</button>
+
+            <div  class="span-div">
+                <span id="span_languages" class="span"></span>
+            </div>
+
+
+
+            <button id="btn_add_language">Add Language</button>
 
         <h2>Hobbie(s)</h2>
 
@@ -238,10 +277,14 @@ get_header();
                 <input type="text" name="hobbies[]" placeholder="hobbies">
             </div>
 
-
         </div>
 
-        <button id="btn_add_hobbies">Add Hobbies</button>
+            <div  class="span-div">
+                <span id="span_hobbies" class="span"></span>
+            </div>
+
+
+            <button id="btn_add_hobbies">Add Hobbies</button>
 
         <h2>Autre(s)</h2>
 
@@ -254,7 +297,12 @@ get_header();
             </div>
         </div>
 
-        <input type="submit">
+            <div  class="span-div">
+                <span id="span_autre" class="span"></span>
+            </div>
+
+
+            <input type="submit">
         </div>
     </form>
 

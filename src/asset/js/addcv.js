@@ -109,35 +109,44 @@ const tabLangues = [
 
 const btn_add_formation = document.querySelector('#btn_add_formation');
 const response_formation = document.querySelector('#response_formation');
-
+const span_diplomes = document.querySelector('#span_diplomes');
+const span = document.querySelector('.span');
 
 const btn_add_experience = document.querySelector('#btn_add_experience');
 const response_experience = document.querySelector('#response_experience');
+const span_experiences = document.querySelector('#span_experiences');
 
 const btn_add_permis = document.querySelector('#btn_add_permis');
 const response_permis = document.querySelector('#response_permis');
 const select_permis = document.querySelector('#permis');
+const span_permis = document.querySelector('#span_permis');
+
 
 const btn_add_softskills = document.querySelector('#btn_add_softskills');
 const response_softskills = document.querySelector('#response_softskills');
 const select_softskills = document.querySelector('#softskills');
+const span_softskills = document.querySelector('#span_softskills');
 
 const btn_add_hardskills = document.querySelector('#btn_add_hardskills');
 const response_hardskills = document.querySelector('#response_hardskills');
 const select_hardskills = document.querySelector('#hardskills');
+const span_hardskills = document.querySelector('#span_hardskills');
 
 const btn_add_reseaux = document.querySelector('#btn_add_reseaux');
 const response_reseaux = document.querySelector('#response_reseaux');
 const select_reseaux = document.querySelector('#reseaux');
+const span_reseaux = document.querySelector('#span_reseaux');
 
 const btn_add_language = document.querySelector('#btn_add_language');
 const response_language = document.querySelector('#response_language');
 const select_language = document.querySelector('#language');
+const span_languages = document.querySelector('#span_languages');
 
 const btn_add_hobbies = document.querySelector('#btn_add_hobbies');
 const response_hobbies = document.querySelector('#response_hobbies');
+const span_hobbies = document.querySelector('#span_hobbies');
 
-
+const span_autre = document.querySelector('#span_autre');
 
 if (btn_add_formation !== null) {
     btn_add_formation.addEventListener('click', function (e) {
@@ -326,7 +335,7 @@ if (btn_add_hobbies !== null) {
 
 let params = new FormData();
 params.append('action', 'record_cv')
-async function  addCvGlobal() {
+async function addCvGlobal() {
     try {
         let response = await fetch(MYSCRIPT.ajaxUrl, {
             method: 'post',
@@ -335,7 +344,45 @@ async function  addCvGlobal() {
         let data = await response.json();
         console.log(data);
 
+        if (data.success) {
+            // Masquer le formulaire
+            const sectionsuccess = document.querySelector('#suc');
+            sectionsuccess.classList.add("test1");
+            theformulaire.style.display = 'none';
 
+            // Afficher un message de succès
+            const successMessage = document.querySelector('.success');
+            successMessage.innerHTML = "Votre formulaire a été soumis avec succès!";
+
+            setTimeout(function() {
+                window.location.href = "http://localhost:8888/nfs-2023-2024/projet-cv-tech/bedrock/web/user/";
+            }, 2000);
+
+        } else {
+            span.innerHTML = '';
+
+            if (data.errors.diplomes) {
+                span_diplomes.innerHTML = data.errors.diplomes[0]
+            }
+            if (data.errors.experiences) {
+                span_experiences.innerHTML = data.errors.experiences[0]
+            }
+            if (data.errors.softskills) {
+                span_softskills.innerHTML = data.errors.softskills[0]
+            }
+            if (data.errors.hardskills) {
+                span_hardskills.innerHTML = data.errors.hardskills[0]
+            }
+            if (data.errors.reseaux) {
+                span_reseaux.innerHTML = data.errors.reseaux[0]
+            }
+            if (data.errors.hobbies) {
+                span_hobbies.innerHTML = data.errors.hobbies[0]
+            }
+            if (data.errors.autre) {
+                span_autre.innerHTML = data.errors.autre[0]
+            }
+        }
     } catch (error) {
         console.error('Erreur lors de la conversion de la réponse JSON :', error);
     }
