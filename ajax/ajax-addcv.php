@@ -15,17 +15,7 @@ function getrecord_cv()
 
     //RESUME
     $userid = $user->ID;
-//    $user = $user->ID;
-//    $prenom = trim(strip_tags($_POST['prenom']));
-//    $email = trim(strip_tags($_POST['mail-input']));
-//    $adresse = trim(strip_tags($_POST['adresse']));
-//    $tel = trim(strip_tags($_POST['tel']));
-//    $birthday = trim(strip_tags($_POST['birthday']));
-//
-//
-//
-//
-//
+
     $wpdb->insert(
         'wp_cvtech_resume',
         array(
