@@ -336,7 +336,7 @@ if (btn_add_hobbies !== null) {
 
 let params = new FormData();
 params.append('action', 'record_cv')
-async function  addCvGlobal() {
+async function addCvGlobal() {
     try {
         let response = await fetch(MYSCRIPT.ajaxUrl, {
             method: 'post',
@@ -345,40 +345,45 @@ async function  addCvGlobal() {
         let data = await response.json();
         console.log(data);
 
-        span.innerHTML = '';
+        if (data.success) {
+            // Masquer le formulaire
+            const sectionsuccess = document.querySelector('#suc');
+            sectionsuccess.classList.add("test1");
+            theformulaire.style.display = 'none';
 
-        // if (data.errors.permis) {
-        //     span_permis.innerHTML = data.errors.permis[0]
-        // }
+            // Afficher un message de succès
+            const successMessage = document.querySelector('.success');
+            successMessage.innerHTML = "Votre formulaire a été soumis avec succès!";
 
-        // console.log(data.errors.diplomes[0])
-        if (data.errors.diplomes) {
-            span_diplomes.innerHTML = data.errors.diplomes[0]
-        }
-        if (data.errors.experiences) {
-            span_experiences.innerHTML = data.errors.experiences[0]
-        }
-        if (data.errors.softskills) {
-            span_softskills.innerHTML = data.errors.softskills[0]
-        }
-        if (data.errors.hardskills) {
-            span_hardskills.innerHTML = data.errors.hardskills[0]
-        }
-        if (data.errors.reseaux) {
-            span_reseaux.innerHTML = data.errors.reseaux[0]
-        }
-        // if (data.errors.languages) {
-        //     span_languages.innerHTML = data.errors.languages[0]
-        // }
-        if (data.errors.hobbies) {
-            span_hobbies.innerHTML = data.errors.hobbies[0]
-        }
-        if (data.errors.autre) {
-            span_autre.innerHTML = data.errors.autre[0]
-        }
+            setTimeout(function() {
+                window.location.href = "http://localhost:8888/nfs-2023-2024/projet-cv-tech/bedrock/web/user/";
+            }, 2000);
 
+        } else {
+            span.innerHTML = '';
 
-
+            if (data.errors.diplomes) {
+                span_diplomes.innerHTML = data.errors.diplomes[0]
+            }
+            if (data.errors.experiences) {
+                span_experiences.innerHTML = data.errors.experiences[0]
+            }
+            if (data.errors.softskills) {
+                span_softskills.innerHTML = data.errors.softskills[0]
+            }
+            if (data.errors.hardskills) {
+                span_hardskills.innerHTML = data.errors.hardskills[0]
+            }
+            if (data.errors.reseaux) {
+                span_reseaux.innerHTML = data.errors.reseaux[0]
+            }
+            if (data.errors.hobbies) {
+                span_hobbies.innerHTML = data.errors.hobbies[0]
+            }
+            if (data.errors.autre) {
+                span_autre.innerHTML = data.errors.autre[0]
+            }
+        }
     } catch (error) {
         console.error('Erreur lors de la conversion de la réponse JSON :', error);
     }

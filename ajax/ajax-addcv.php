@@ -6,25 +6,14 @@ function getrecord_cv()
 {
 
     $errors = array();
-    $success = false;
+    $success = true;
     global $wpdb;
 
     $user = wp_get_current_user();
     $date = current_time('mysql');
 
-
     //RESUME
     $userid = $user->ID;
-
-    $wpdb->insert(
-        'wp_cvtech_resume',
-        array(
-            'idUser' => sanitize_text_field($userid),
-            'created_at' => $date,
-
-        ),
-    );
-
 
     // ID RESUME RECUP
 
@@ -33,7 +22,6 @@ function getrecord_cv()
     $table_name = $wpdb->prefix . 'resume';
     $query = "SELECT id FROM wp_cvtech_resume WHERE idUser = $userid";
     $idREsume = $wpdb->get_row($query);
-
 
 
     // IDENTITY
@@ -45,21 +33,6 @@ function getrecord_cv()
     $birthday = trim(strip_tags($_POST['birthday']));
 
 
-
-    $wpdb->insert(
-        'wp_cvtech_identity',
-        array(
-            'idResume' => $idREsume->id,
-            'firstName' => sanitize_text_field($prenom),
-            'lastName' => sanitize_text_field($nom),
-            'location' => sanitize_text_field($adresse),
-            'email' => sanitize_text_field($email),
-            'phoneNumber' => sanitize_text_field($tel),
-            'birthday' => sanitize_text_field($birthday),
-
-        ),
-    );
-
     // DIPLOMA
     $diplomes = $_POST['diplome'];
     $diplocation = $_POST['dip_location'];
@@ -68,8 +41,6 @@ function getrecord_cv()
     $dipStart = $_POST['dip_start'];
     $dipEnd = $_POST['dip_end'];
 
-
-//    $alldiplome = array();
 
     for ($i = 0; $i < count($diplomes); $i++) {
         $alldiplome[] = array(
@@ -100,8 +71,6 @@ function getrecord_cv()
             );
         }
     }
-
-
 
 
     // EXPERIENCE
@@ -373,6 +342,31 @@ function getrecord_cv()
 
 //     Validation finale
 if (count($errors) === 0) {
+
+    $wpdb->insert(
+        'wp_cvtech_resume',
+        array(
+            'idUser' => sanitize_text_field($userid),
+            'created_at' => $date,
+
+        ),
+    );
+
+    $wpdb->insert(
+        'wp_cvtech_identity',
+        array(
+            'idResume' => $idREsume->id,
+            'firstName' => sanitize_text_field($prenom),
+            'lastName' => sanitize_text_field($nom),
+            'location' => sanitize_text_field($adresse),
+            'email' => sanitize_text_field($email),
+            'phoneNumber' => sanitize_text_field($tel),
+            'birthday' => sanitize_text_field($birthday),
+
+        ),
+    );
+
+
     $success = true;
 }
 

@@ -7,6 +7,12 @@
 get_header();
 
 ?>
+
+<section id="suc">
+    <div class="wrap">
+    <p class="success"></p>
+    </div>
+</section>
 <section id="formcv">
 
     <form action="" method="post" id="theformulaire">
@@ -42,7 +48,7 @@ get_header();
 
         </div>
 
-            <div>
+            <div class="span-div">
                 <span id="span_diplomes" class="span"></span>
             </div>
 
@@ -66,7 +72,7 @@ get_header();
 
         </div>
 
-            <div>
+            <div  class="span-div">
                 <span id="span_experiences" class="span"></span>
             </div>
 
@@ -102,7 +108,7 @@ get_header();
 
         </div>
 
-            <div>
+            <div  class="span-div">
                 <span id="span_permis" class="span"></span>
             </div>
 
@@ -133,7 +139,7 @@ get_header();
             </div>
         </div>
 
-            <div>
+            <div  class="span-div">
                 <span id="span_softskills" class="span"></span>
             </div>
 
@@ -175,7 +181,7 @@ get_header();
 
         </div>
 
-            <div>
+            <div  class="span-div">
                 <span id="span_hardskills" class="span"></span>
             </div>
 
@@ -216,7 +222,7 @@ get_header();
         </div>
 
 
-            <div>
+            <div  class="span-div">
                 <span id="span_reseaux" class="span"></span>
             </div>
 
@@ -255,7 +261,7 @@ get_header();
         </div>
 
 
-            <div>
+            <div  class="span-div">
                 <span id="span_languages" class="span"></span>
             </div>
 
@@ -273,7 +279,7 @@ get_header();
 
         </div>
 
-            <div>
+            <div  class="span-div">
                 <span id="span_hobbies" class="span"></span>
             </div>
 
@@ -291,7 +297,7 @@ get_header();
             </div>
         </div>
 
-            <div>
+            <div  class="span-div">
                 <span id="span_autre" class="span"></span>
             </div>
 
