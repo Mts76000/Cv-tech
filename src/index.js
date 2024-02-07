@@ -7,6 +7,7 @@ import './asset/css/home.scss';
 import './asset/css/modal.scss';
 import './asset/css/recruteur.scss';
 import './asset/css/candidater.scss';
+import './asset/css/user.scss';
 
 // JS
 

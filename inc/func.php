@@ -147,11 +147,18 @@ function validmail($errors,$valeur,$key){
 
 function recupDetail($wpdb, $table_name_suffix, $idResume, &$name1, &$name_data) {
     $table_name = $wpdb->prefix . $table_name_suffix;
-    $query = "SELECT * FROM $table_name WHERE idResume = $idResume";
+    $query = $wpdb->prepare("SELECT * FROM $table_name WHERE idResume = %d", $idResume);
     $name1 = $wpdb->get_results($query);
 
     $name_data = array();
     foreach ($name1 as $name) {
         $name_data[] = $name;
     }
+}
+
+
+function recupUserDetail($wpdb,$table_name_suffix,$idResume){
+    $table_name = $wpdb->prefix . $table_name_suffix;
+    $query = $wpdb->prepare(" SELECT * FROM $table_name WHERE idResume = %d", $idResume);
+    return $wpdb->get_row($query);
 }
