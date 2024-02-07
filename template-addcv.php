@@ -306,6 +306,23 @@ get_header();
         </div>
     </form>
 
+    <?php
+    $user = wp_get_current_user();
+
+    $userid = $user->ID;
+
+    // ID RESUME RECUP
+    global $wpdb;
+    $query = "SELECT id FROM wp_cvtech_resume WHERE idUser = $userid";
+    $idREsume = $wpdb->get_row($query);
+
+
+
+    echo $idREsume->id
+    ?>
+
+
+
 </section>
 
 <?php get_footer();
