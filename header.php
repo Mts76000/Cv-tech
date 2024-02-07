@@ -40,7 +40,6 @@
 
                 <?php
                 if ( is_user_logged_in() ) {
-
                     echo ' <li class="desk"><a class="modal_profil" href="#"><i class="fa-solid fa-user"></i></a></li>';
 
                 } else {

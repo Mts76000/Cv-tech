@@ -1,0 +1,129 @@
+#profil{
+  .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .top{
+      text-align: center;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+
+      .img {
+        width: 150px;
+        height: 150px;
+
+        img {
+          width: 100%;
+          transform: translateY(-20px);
+        }
+      }
+      .info{
+        font-size: 20px;
+      }
+
+      .perso{
+        gap: 0.5rem;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background-color: white;
+        border-radius: 5px;
+        padding: 2rem;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+        form{
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          width: 100%;
+        }
+      }
+
+
+
+    }
+  }
+
+  .midel{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .formation{
+      display: flex;
+      gap: 0.5rem;
+      flex-direction: column;
+      width:48%;
+      background-color: white;
+      border-radius: 5px;
+      padding: 2rem;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }.experience{
+       display: flex;
+       gap: 0.5rem;
+       flex-direction: column;
+       width: 48%;
+       background-color: white;
+       border-radius: 5px;
+       padding: 2rem;
+       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+     }
+  }
+
+  .down {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    .submit{
+      padding: 0.5rem;
+      background-color: var(--bleu);
+      border: none;
+      width: 25%;
+      color: white;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      transition: 0.5s ease-in-out;
+    }.submit:hover{
+      background-color: var(--orange);
+    cursor: pointer;
+    }
+  }
+}
+
+
+#NoUser{
+  background: url("../img/bg.png");
+  .wrap{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    gap: 1.5rem;
+  }
+
+  a{
+    font-size: 20px;
+    background-color: var(--orange);
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+  }
+}
+
+.error-no-user{
+background-color: var(--bleu);
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+}

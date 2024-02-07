@@ -1,10 +1,10 @@
 <?php
-add_action('wp_ajax_get_detail','getDetailMaster');
-add_action('wp_ajax_nopriv_get_detail','getDetailMaster');
+add_action('wp_ajax_get_user','getUserMaster');
+add_action('wp_ajax_nopriv_get_user','getUserrMaster');
 
 
 
-function getDetailMaster()
+function getUserMaster()
 {
 
     //secu recruteur
@@ -13,12 +13,13 @@ function getDetailMaster()
 
     global $wpdb;
     $table_name = $wpdb->prefix . 'identity';
-    $query = $wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $id);
+    $query = "SELECT * FROM $table_name WHERE id = $id";
+    //prepare
     $user = $wpdb->get_row($query);
 
     $idResume = $user->idResume;
 
- // diplome
+    // diplome
     $diplomas = array();
     $diploma_data = array();
     recupDetail($wpdb, 'diploma', $idResume, $diplomas, $diploma_data);
@@ -33,7 +34,7 @@ function getDetailMaster()
     $hobbies_data = array();
     recupDetail($wpdb, 'hobbies', $idResume, $hobbies, $hobbies_data);
 
- // other
+    // other
     $others = array();
     $other_data = array();
     recupDetail($wpdb, 'other', $idResume, $others, $other_data);

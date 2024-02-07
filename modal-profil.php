@@ -28,8 +28,9 @@
                     <?php
                 }
                 ?>
-
+                <a href="<?php echo path('/user'); ?>">Mon Cv</a>
                 <a  href="<?php echo wp_logout_url(home_url()); ?>">Se déconnecter</a>
+
 
             </main>
             <footer class="modal__footer">
