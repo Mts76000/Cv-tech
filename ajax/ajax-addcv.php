@@ -84,7 +84,7 @@ function getrecord_cv()
 
     foreach ($alldiplome as $item) {
         if (empty($item['title']) || empty($item['location']) || empty($item['dip_start']) || empty($item['dip_end']) || empty($item['status']) || empty($item['school'] )) {
-            $errors[] = 'Tous les champs doivent être remplis pour chaque diplôme.';
+            $errors['diplomes'][] = 'Tous les champs doivent être remplis pour chaque diplôme.';
         } else {
             $wpdb->insert(
                 'wp_cvtech_diploma',
@@ -124,7 +124,7 @@ function getrecord_cv()
 
     foreach ($allexperience as $item) {
         if (empty($item['title']) || empty($item['location']) || empty($item['exp_start']) || empty($item['exp_end']) || empty($item['poste'])) {
-            $errors[] = 'Tous les champs doivent être remplis pour chaque expérience.';
+            $errors['experiences'][] = 'Tous les champs doivent être remplis pour chaque expérience.';
         } else {
             $wpdb->insert(
                 'wp_cvtech_professional_experience',
@@ -143,29 +143,45 @@ function getrecord_cv()
 
     // DRIVING
     $permis = $_POST['permis'];
-    $allpermis = array();
+    $allPermis = array();
+    $countPermis = 0;
+    $selectedPermis = array();
 
     for ($i = 0; $i < count($permis); $i++) {
-        $allpermis[] = sanitize_text_field($permis[$i]);
+        $allPermis[] = sanitize_text_field($permis[$i]);
     }
 
-    foreach ($allpermis as $item) {
+    foreach ($allPermis as $item) {
         if (empty($item)) {
-            $errors[] = 'Tous les choix doivent être sélectionnés pour chaque permis de conduire.';
+            $errors['permis'][] = 'Tous les choix doivent être sélectionnés pour chaque permis de conduire.';
         } else {
-            $wpdb->insert(
-                'wp_cvtech_driving_license',
-                array(
-                    'dlName' => $item,
-                ),
-                array('%s')
-            );
+            if (!in_array($item, $selectedPermis)) {
+                if ($countPermis < 5) {
+                    $wpdb->insert(
+                        'wp_cvtech_driving_license',
+                        array(
+                            'dlName' => $item,
+                        ),
+                        array('%s')
+                    );
+                    $selectedPermis[] = $item;
+                    $countPermis++;
+                } else {
+                    $errors['permis'][] = 'Vous ne pouvez pas sélectionner plus de 5 permis de conduire.';
+                    break;
+                }
+            } else {
+                $errors['permis'][] = 'Vous ne pouvez pas sélectionner le même permis de conduire plus d\'une fois.';
+            }
         }
     }
 
-    // SOFTSKILLS
+
+// SOFTSKILLS
     $softskills = $_POST['softskills'];
     $allsoftskills = array();
+    $countSoftSkills = 0;
+    $selectedSoftSkills = array();
 
     for ($i = 0; $i < count($softskills); $i++) {
         $allsoftskills[] = sanitize_text_field($softskills[$i]);
@@ -173,21 +189,35 @@ function getrecord_cv()
 
     foreach ($allsoftskills as $item) {
         if (empty($item)) {
-            $errors[] = 'Tous les choix doivent être sélectionnés pour chaque compétence soft.';
+            $errors['softskills'][] = 'Tous les choix doivent être sélectionnés pour chaque compétence soft.';
         } else {
-            $wpdb->insert(
-                'wp_cvtech_soft_skill',
-                array(
-                    'ssName' => $item,
-                ),
-                array('%s')
-            );
+            if (!in_array($item, $selectedSoftSkills)) {
+                if ($countSoftSkills < 5) {
+                    $wpdb->insert(
+                        'wp_cvtech_soft_skill',
+                        array(
+                            'ssName' => $item,
+                        ),
+                        array('%s')
+                    );
+                    $selectedSoftSkills[] = $item;
+                    $countSoftSkills++;
+                } else {
+                    $errors['softskills'][] = 'Vous ne pouvez pas sélectionner plus de 5 softskills.';
+                    break;
+                }
+            } else {
+                $errors['softskills'][] = 'Vous ne pouvez pas sélectionner la même softSkill plus d\'une fois.';
+            }
         }
     }
+
 
 // HARDSKILLS
     $hardskills = $_POST['hardskills'];
     $allhardskills = array();
+    $countHardSkills = 0;
+    $selectedHardSkills = array();
 
     for ($i = 0; $i < count($hardskills); $i++) {
         $allhardskills[] = sanitize_text_field($hardskills[$i]);
@@ -195,15 +225,26 @@ function getrecord_cv()
 
     foreach ($allhardskills as $item) {
         if (empty($item)) {
-            $errors[] = 'Tous les choix doivent être sélectionnés pour chaque compétence hard.';
+            $errors['hardskills'][] = 'Tous les choix doivent être sélectionnés pour chaque compétence hard.';
         } else {
-            $wpdb->insert(
-                'wp_cvtech_hard_skill',
-                array(
-                    'hsName' => $item,
-                ),
-                array('%s')
-            );
+            if (!in_array($item, $selectedHardSkills)) {
+                if ($countHardSkills < 5) {
+                    $wpdb->insert(
+                        'wp_cvtech_hard_skill',
+                        array(
+                            'hsName' => $item,
+                        ),
+                        array('%s')
+                    );
+                    $selectedHardSkills[] = $item;
+                    $countHardSkills++;
+                } else {
+                    $errors['hardskills'][] = 'Vous ne pouvez pas sélectionner plus de 5 hardskills.';
+                    break;
+                }
+            } else {
+                $errors['hardskills'][] = 'Vous ne pouvez pas sélectionner le même hardSkill plus d\'une fois.';
+            }
         }
     }
 
@@ -211,6 +252,8 @@ function getrecord_cv()
     $reseaux = $_POST['reseaux'];
     $reseauxUrl = $_POST['url'];
     $allreseaux = array();
+    $countReseaux = 0;
+    $selectedReseaux = array();
 
     for ($i = 0; $i < count($reseaux); $i++) {
         $allreseaux[] = sanitize_text_field($reseaux[$i])   ;
@@ -218,39 +261,64 @@ function getrecord_cv()
 
     foreach ($allreseaux as $item) {
         if (empty($item)) {
-            $errors[] = 'Tous les champs doivent être remplis pour chaque réseau social.';
+            $errors['reseaux'][] = 'Tous les champs doivent être remplis pour chaque réseau social.';
         } else {
-            $wpdb->insert(
-                'wp_cvtech_social_network',
-                array(
-                    'snName' => $item,
-                ),
-                array('%s')
-            );
+            if (!in_array($item, $selectedReseaux)) {
+                if ($countReseaux < 5) {
+                    $wpdb->insert(
+                        'wp_cvtech_social_network',
+                        array(
+                            'snName' => $item,
+                        ),
+                        array('%s')
+                    );
+                    $selectedReseaux[] = $item;
+                    $countReseaux++;
+                } else {
+                    $errors['reseaux'][] = 'Vous ne pouvez pas sélectionner plus de 5 reseaux.';
+                    break;
+                }
+            } else {
+                $errors['reseaux'][] = 'Vous ne pouvez pas sélectionner le même reseaux plus d\'une fois.';
+            }
         }
     }
 
-// LANGUAGE
-    $language = $_POST['language'];
-    $alllanguages = array();
+// LANGUAGES
+    $languages = $_POST['language'];
+    $allLanguages = array();
+    $countLanguages = 0;
+    $selectedLanguages = array();
 
-    for ($i = 0; $i < count($language); $i++) {
-        $alllanguages[] = sanitize_text_field($language[$i]);
+    for ($i = 0; $i < count($languages); $i++) {
+        $allLanguages[] = sanitize_text_field($languages[$i]);
     }
 
-    foreach ($alllanguages as $item) {
+    foreach ($allLanguages as $item) {
         if (empty($item)) {
-            $errors[] = 'Tous les champs doivent être remplis pour chaque langue.';
+            $errors['languages'][] = 'Tous les champs doivent être remplis pour chaque langue.';
         } else {
-            $wpdb->insert(
-                'wp_cvtech_language',
-                array(
-                    'language' => $item,
-                ),
-                array('%s')
-            );
+            if (!in_array($item, $selectedLanguages)) {
+                if ($countLanguages < 5) {
+                    $wpdb->insert(
+                        'wp_cvtech_language',
+                        array(
+                            'language' => $item,
+                        ),
+                        array('%s')
+                    );
+                    $selectedLanguages[] = $item;
+                    $countLanguages++;
+                } else {
+                    $errors['languages'][] = 'Vous ne pouvez pas sélectionner plus de 5 langues.';
+                    break;
+                }
+            } else {
+                $errors['languages'][] = 'Vous ne pouvez pas sélectionner la même langue plus d\'une fois.';
+            }
         }
     }
+
 
     // HOBBIES
     $hobbies = $_POST['hobbies'];
@@ -262,7 +330,7 @@ function getrecord_cv()
 
     foreach ($allhobbies as $item) {
         if (empty($item)) {
-            $errors[] = 'Tous les champs doivent être remplis pour chaque hobby.';
+            $errors['hobbies'][] = 'Tous les champs doivent être remplis pour chaque hobby.';
         } else {
             $wpdb->insert(
                 'wp_cvtech_hobbies',
@@ -274,6 +342,7 @@ function getrecord_cv()
             );
         }
     }
+
 
     // AUTRE
     $autre = $_POST['autre'];
@@ -289,29 +358,30 @@ function getrecord_cv()
 
     foreach ($allautre as $item) {
 
-            $wpdb->insert(
-                'wp_cvtech_other',
-                array(
-                    'idResume' => $idREsume->id,
-                    'otherDetails' => $item['autre'],
-                    'otherName' => $item['titleAutre'],
-                ),
-                array('%s', '%s')
-            );
-        }
+        $wpdb->insert(
+            'wp_cvtech_other',
+            array(
+                'idResume' => $idREsume->id,
+                'otherDetails' => $item['autre'],
+                'otherName' => $item['titleAutre'],
+            ),
+            array('%s', '%s')
+        );
+    }
+
 
 
 //     Validation finale
-    if (count($errors) === 0) {
-        $success = true;
-    }
+if (count($errors) === 0) {
+    $success = true;
+}
 
-    // Affichage du résultat en format JSON
-    showJson(
-        array(
-            'errors' => $errors,
-            'success' => $success,
-        )
-    );
+// Affichage du résultat en format JSON
+showJson(
+    array(
+        'errors' => $errors,
+        'success' => $success,
+    )
+);
 }
 
