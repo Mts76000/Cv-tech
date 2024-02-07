@@ -13,9 +13,10 @@ if ($idUser) {
     $user = $wpdb->get_row($query);
 
 
+
     if ($user) {
 
-        $idResume = $user->id;
+        $idResume = $user->idUser;
 
         $identity =  recupUserDetail($wpdb,'identity',$idResume);
 
