@@ -6,6 +6,7 @@
 
 get_header();
 
+if (is_user_logged_in()) {
 ?>
 
 <section id="suc">
@@ -310,7 +311,19 @@ get_header();
 
 </section>
 
-<?php get_footer();
+    <?php
+} else {
+    ?>
+    <section id="NoUser">
+        <div class="wrap">
+            <p class='error-no-user'>Vous devez être connecté pour accéder à cette page.</p>
+            <a href='<?php echo path('/'); ?>'>Retour a la home</a>
+        </div>
+    </section>
+    <?php
+}
+
+ get_footer();
 
 
 
