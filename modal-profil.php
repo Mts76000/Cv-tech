@@ -3,7 +3,6 @@
         <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-3-title">
             <header class="modal__header">
                 <h2 class="modal__title" id="modal-3-title">
-                    Profil
                 </h2>
                 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
             </header>
@@ -28,7 +27,7 @@
                     <?php
                 }
                 ?>
-                <a href="<?php echo path('/user'); ?>">Mon Cv</a>
+                <a href="<?php echo path('/user'); ?>">Mon CV</a>
                 <a  href="<?php echo wp_logout_url(home_url()); ?>">Se déconnecter</a>
 
 

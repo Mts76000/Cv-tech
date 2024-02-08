@@ -4,6 +4,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    h3{
+      text-decoration: underline;
+    }
     .top{
       text-align: center;
       width: 100%;
@@ -52,6 +55,7 @@
 
   .midel{
     margin-top: 2rem;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -76,27 +80,6 @@
      }
   }
 
-  .down {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    .submit{
-      padding: 0.5rem;
-      background-color: var(--bleu);
-      border: none;
-      width: 25%;
-      color: white;
-      font-size: 1.5rem;
-      border-radius: 10px;
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-      transition: 0.5s ease-in-out;
-    }.submit:hover{
-      background-color: var(--orange);
-    cursor: pointer;
-    }
-  }
 }
 
 

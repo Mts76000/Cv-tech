@@ -42,34 +42,29 @@ if ($idUser) {
                         <p><?php echo $current_user->user_email ?></p>
                     </div>
                     <div class="perso">
-                        <h3>Mes information personel :</h3>
-                        <form action="" method="post">
-                            <input type="text" id="nom" name="nom" placeholder="nom" value="<?php echo $identity->lastName ?>">
-                            <input type="text" id="prenom" name="prenom" placeholder="prénom" value="<?php echo $identity->firstName ?>">
-                            <input type="text" id="adresse" name="adresse" placeholder="adresse" value="<?php echo $identity->location ?>">
-                            <input type="email" id="mail-input" name="mail-input" placeholder="email" value="<?php echo $identity->email ?>">
-                            <input type="tel" id="tel" name="tel" placeholder="tel" value="<?php echo $identity->phoneNumber ?>">
-                        </form>
+                        <h3>Mes informations personnelles  :</h3>
+                        <p>Nom : <?php echo $identity->lastName ?></p>
+                        <p>Prénom : <?php echo $identity->firstName ?></p>
+                        <p>Adresse :  <?php echo $identity->location ?></p>
+                        <p>Email : <?php echo $identity->email ?></p>
+                        <p>Telephone : <?php echo $identity->phoneNumber ?></p>
                     </div>
                 </div>
 
                 <div class="midel">
                     <div class="formation">
                         <h3>Mes Formation :</h3>
-                        <p>ecole : <?php echo $formation->school ?></p>
-                        <p>lieux : <?php echo $formation->schoolLocation ?></p>
-                        <p>diplome : <?php echo $formation->diplomaName ?></p>
-                        <p>status : <?php echo $formation->diplomastatus ?></p>
+                        <p>Nom école : <?php echo $formation->school ?></p>
+                        <p>Adresse école : <?php echo $formation->schoolLocation ?></p>
+                        <p>Nom du diplome : <?php echo $formation->diplomaName ?></p>
+                        <p>Status : <?php echo $formation->diplomastatus ?></p>
                     </div>
                     <div class="experience">
-                        <h3>Mes expérience :</h3>
-                        <p>entreprise : <?php echo $experience->peName ?> </p>
-                        <p>lieux : <?php echo $experience->peLocation ?> </p>
-                        <p>poste : <?php echo $experience->pePositionHeld ?> </p>
+                        <h3>Mes expériences :</h3>
+                        <p>Nom entreprise : <?php echo $experience->peName ?> </p>
+                        <p>Adresse : <?php echo $experience->peLocation ?> </p>
+                        <p>Poste : <?php echo $experience->pePositionHeld ?> </p>
                     </div>
-                </div>
-                <div class="down">
-                    <input class="submit" type="submit" value="Modifier mes infos">
                 </div>
             </div>
         </section>

@@ -326,9 +326,8 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_hobbies',
                 array(
-                    'idResume' => $userid,
-                    'idResume' => $userid,
                     'hobbieName' => $item,
+                    'idResume' => $userid,
                 ),
                 array('%s', '%d')
             );
@@ -386,6 +385,52 @@ function getrecord_cv()
             array('%d', '%s', '%s', '%s', '%s', '%s', '%s')
         );
 
+
+
+        $subject = '<h2> Sujet : Confirmation de réception de votre CV </h2><br>';
+
+
+        $message = '<p>Bonjour '. $nom .',<br>';
+        $message .= 'Nous vous remercions vivement pour l\'intérêt que vous avez manifesté à l\'égard <br>du cabinet Bertolucci Recrute. Nous avons bien reçu votre CV et nous vous en sommes reconnaissants.<br>';
+        $message .= 'Votre candidature est actuellement en cours d\'examen par notre équipe de recrutement.<br> Nous prenons le temps nécessaire pour étudier attentivement chaque profil<br> afin de trouver le candidat parfaitement adapté à nos besoins et à ceux de nos clients.<br>';
+        $message .= '<br>';
+        $message .= 'Cordialement,<br> l\'équipe Bertolucci Recrute </p>';
+
+
+        $headers = array(
+            'Content-Type: text/plain; charset=UTF-8',
+            'From: Votre Nom <votre-email@gmail.com>',
+        );
+
+// Paramètres SMTP
+        $username = defined('GMAIL_SMTP_USER') ? GMAIL_SMTP_USER : '';
+        $password = defined('GMAIL_SMTP_PASSWORD') ? GMAIL_SMTP_PASSWORD : '';
+        $smtp_args = array(
+            'host' => 'smtp.gmail.com',
+            'port' => 587,
+            'username' => $username,
+            'password' => $password,
+            'ssl' => 'tls',
+            'authentication' => true,
+        );
+
+// Config. wp_mail
+        add_action('phpmailer_init', function($phpmailer) use ($smtp_args) {
+            $phpmailer->Host = $smtp_args['host'];
+            $phpmailer->Port = $smtp_args['port'];
+            $phpmailer->Username = $smtp_args['username'];
+            $phpmailer->Password = $smtp_args['password'];
+            $phpmailer->SMTPAuth = $smtp_args['authentication'];
+            $phpmailer->SMTPSecure = $smtp_args['ssl'];
+        });
+        wp_mail($email, $subject, $message, $headers);
+
+
+        $file = __DIR__ . '/../mail/mailtest.php';
+
+        $content = $subject . '' . $message;
+
+        file_put_contents($file, $content, FILE_APPEND | LOCK_EX);
 
         $success = true;
     }

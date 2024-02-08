@@ -4,6 +4,8 @@
  * Template Name: pdf
  */
 
+require('fpdf/fpdf.php');
+
 if(!empty($_GET['id'])) {
     $id = $_GET['id'];
 

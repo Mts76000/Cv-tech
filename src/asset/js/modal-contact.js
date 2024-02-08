@@ -20,9 +20,9 @@ async function GetContactUser() {
         let data = await response.json();
 
         loader.classList.add("loader-none");
-            email.innerHTML = "email : " + data.user.email;
+            email.innerHTML = "Email : " + data.user.email;
             email.href = "mailto:" + data.user.email;
-            phone.innerHTML = "telephone : " + data.user.phoneNumber;
+            phone.innerHTML = "Telephone : " + data.user.phoneNumber;
 
     } catch (error) {
         console.error('Erreur lors de la conversion de la réponse JSON :', error);

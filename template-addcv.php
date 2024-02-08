@@ -6,6 +6,7 @@
 
 get_header();
 
+if (is_user_logged_in()) {
 ?>
 
 <section id="suc">
@@ -18,12 +19,12 @@ get_header();
     <form action="" method="post" id="theformulaire">
         <div class="wrap">
         <h2>Identité</h2>
-        <input type="text" id="nom" name="nom" placeholder="nom">
-        <input type="text" id="prenom" name="prenom" placeholder="prénom">
-        <input type="text" id="adresse" name="adresse" placeholder="adresse">
-        <input type="email" id="mail-input" name="mail-input" placeholder="email">
-        <input type="tel" id="tel" name="tel" placeholder="tel">
-            <span>date de naissance</span>
+        <input type="text" id="nom" name="nom" placeholder="Nom">
+        <input type="text" id="prenom" name="prenom" placeholder="Prénom">
+        <input type="text" id="adresse" name="adresse" placeholder="Adresse">
+        <input type="email" id="mail-input" name="mail-input" placeholder="Email">
+        <input type="tel" id="tel" name="tel" placeholder="Téléphone">
+            <span>Date de naissance</span>
         <input type="date" id="birthday" name="birthday" placeholder="birthday">
             <hr>
 
@@ -33,6 +34,7 @@ get_header();
 
         <div id="response_formation">
             <div>
+<<<<<<< HEAD
                 <input type="text"  placeholder="nom de l'école" name="school[]">
                 <input type="text" placeholder="adresse de l'école" name="dip_location[]">
                 <input type="text" placeholder="nom du diplome" name="diplome[]">
@@ -41,6 +43,17 @@ get_header();
                 <input type="date" placeholder="date de debut" name="dip_start[]">
                 <span>date de fin</span>
                 <input type="date" placeholder="date de fin" name="dip_end[]">
+=======
+                <input type="text"  placeholder="Nom de l'école" name="school[]">
+                <input type="text" placeholder="Adresse de l'école" name="dip_location[]">
+                <input type="text" placeholder="Nom du diplôme" name="diplome[]">
+                <input type="text" placeholder="Status" name="status[]">
+                <span>Date de début</span>
+                <input type="date" placeholder="Date de début" name="dip_start[]">
+                <span>Date de fin</span>
+                <input type="date" placeholder="Date de fin" name="dip_end[]">
+
+>>>>>>> fdf68fd4eec82859f5102f9c23f6df50b16c6f45
             </div>
         </div>
 
@@ -49,7 +62,7 @@ get_header();
             </div>
 
 
-            <button id="btn_add_formation">Add Formation</button>
+            <button id="btn_add_formation">Ajouter une formation</button>
             <hr>
 
         <h2>Expérience(s)</h2>
@@ -57,12 +70,12 @@ get_header();
         <div id="response_experience">
 
             <div>
-                <input type="text" name="experience[]" placeholder="experience">
-                <input type="text" name="exp_location[]" placeholder="exp_location">
-                <input type="text" name="poste[]" placeholder="poste">
-                <span>date de debut</span>
+                <input type="text" name="experience[]" placeholder="Nom entreprise">
+                <input type="text" name="exp_location[]" placeholder="Lieu">
+                <input type="text" name="poste[]" placeholder="Poste">
+                <span>Date de début</span>
                 <input type="date" name="exp_start[]" placeholder="exp_start">
-                <span>date de fin</span>
+                <span>Date de fin</span>
                 <input type="date" name="exp_end[]" placeholder="exp_end">
             </div>
 
@@ -73,7 +86,7 @@ get_header();
             </div>
 
 
-            <button id="btn_add_experience">Add Experience</button>
+            <button id="btn_add_experience">Ajouter une expérience</button>
             <hr>
         <h2>Permis</h2>
 
@@ -109,7 +122,7 @@ get_header();
             </div>
 
 
-            <button id="btn_add_permis">Add Permis</button>
+            <button id="btn_add_permis">Ajouter un permis</button>
 
         <h2>Soft Skills</h2>
 
@@ -140,7 +153,7 @@ get_header();
             </div>
 
 
-            <button id="btn_add_softskills">Add Softskills</button>
+            <button id="btn_add_softskills">Ajouter un softskills</button>
 
         <h2>Hard Skills</h2>
 
@@ -182,7 +195,7 @@ get_header();
             </div>
 
 
-            <button id="btn_add_hardskills">Add Hardskills</button>
+            <button id="btn_add_hardskills">Ajouter un hardskills</button>
 
 
         <h2>Réseaux Sociaux</h2>
@@ -212,7 +225,7 @@ get_header();
                     <option value="GitHub">GitHub</option>
                 </select>
 
-                <input type="text" name="url[]" placeholder="lien">
+                <input type="text" name="url[]" placeholder="Lien">
 
             </div>
         </div>
@@ -223,7 +236,7 @@ get_header();
             </div>
 
 
-            <button id="btn_add_reseaux">Add Réseaux</button>
+            <button id="btn_add_reseaux">Ajouter un réseaux</button>
 
 
         <h2>Language</h2>
@@ -263,14 +276,14 @@ get_header();
 
 
 
-            <button id="btn_add_language">Add Language</button>
+            <button id="btn_add_language">Ajouter une langue</button>
 
         <h2>Hobbie(s)</h2>
 
         <div id="response_hobbies">
 
             <div>
-                <input type="text" name="hobbies[]" placeholder="hobbies">
+                <input type="text" name="hobbies[]" placeholder="Hobbies">
             </div>
 
         </div>
@@ -280,15 +293,14 @@ get_header();
             </div>
 
 
-            <button id="btn_add_hobbies">Add Hobbies</button>
+            <button id="btn_add_hobbies">Ajouter un hobbies</button>
 
         <h2>Autre(s)</h2>
 
         <div id="response_autre">
 
             <div>
-                <input type="text" name="title_autre[]" placeholder="title_autre">
-                <textarea type="text" name="autre[]" placeholder="autre"></textarea>
+                <textarea type="text" name="autre[]" placeholder="Autre"></textarea>
 
             </div>
         </div>
@@ -306,7 +318,19 @@ get_header();
 
 </section>
 
-<?php get_footer();
+    <?php
+} else {
+    ?>
+    <section id="NoUser">
+        <div class="wrap">
+            <p class='error-no-user'>Vous devez être connecté pour accéder à cette page.</p>
+            <a href='<?php echo path('/'); ?>'>Retour a la home</a>
+        </div>
+    </section>
+    <?php
+}
+
+ get_footer();
 
 
 
