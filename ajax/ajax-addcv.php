@@ -326,9 +326,8 @@ function getrecord_cv()
             $wpdb->insert(
                 'wp_cvtech_hobbies',
                 array(
-                    'idResume' => $userid,
-                    'idResume' => $userid,
                     'hobbieName' => $item,
+                    'idResume' => $userid,
                 ),
                 array('%s', '%d')
             );
