@@ -28,6 +28,19 @@ if (is_user_logged_in()) {
         <input type="date" id="birthday" name="birthday" placeholder="birthday">
             <hr>
 
+            <h2>Description</h2>
+
+            <div id="response_autre">
+
+                <div>
+                    <textarea rows="4" type="text" name="autre[]" placeholder="blabla..."></textarea>
+
+                </div>
+            </div>
+
+            <div  class="span-div">
+                <span id="span_autre" class="span"></span>
+            </div>
 
         <h2>Formation(s)</h2>
 
@@ -287,19 +300,7 @@ if (is_user_logged_in()) {
 
             <button id="btn_add_hobbies">Ajouter un hobbies</button>
 
-        <h2>Autre(s)</h2>
 
-        <div id="response_autre">
-
-            <div>
-                <textarea type="text" name="autre[]" placeholder="Autre"></textarea>
-
-            </div>
-        </div>
-
-            <div  class="span-div">
-                <span id="span_autre" class="span"></span>
-            </div>
 
 
             <input type="submit">

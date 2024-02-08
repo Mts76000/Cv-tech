@@ -3,6 +3,7 @@ const error_login = document.querySelector('#error_login');
 const loginInput = document.querySelector('#login');
 const passwordInput = document.querySelector('#password');
 
+
 // Modal
 MicroModal.init();
 
@@ -41,7 +42,6 @@ async function GetFormLoginUser() {
     } else {
         error_login.innerHTML = data.errors.login;
     }
-
 }
 
 
