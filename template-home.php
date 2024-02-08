@@ -35,11 +35,11 @@ get_header();
                     </div>
                     <div class="one-list">
                         <img src="<?php echo asset("img/check.png"); ?>" alt="check">
-                        <p>Générateur de CV en ligne simple et intuitif</p>
+                        <p>Générateur de CV en ligne simple et intuitive</p>
                     </div>
                     <div class="one-list">
                         <img src="<?php echo asset("img/check.png"); ?>" alt="check">
-                        <p>Utilisation gratuite. Développé pour l’embauche professionnels.</p>
+                        <p>Utilisation gratuite. Développé pour l'embauche professionnelle.</p>
                     </div>
                     <div class="one-list">
                         <img src="<?php echo asset("img/check.png"); ?>" alt="check">

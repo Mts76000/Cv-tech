@@ -42,7 +42,7 @@ if ($idUser) {
                         <p><?php echo $current_user->user_email ?></p>
                     </div>
                     <div class="perso">
-                        <h3>Mes information personel :</h3>
+                        <h3>Mes informations personnelles  :</h3>
                         <form action="" method="post">
                             <input type="text" id="nom" name="nom" placeholder="nom" value="<?php echo $identity->lastName ?>">
                             <input type="text" id="prenom" name="prenom" placeholder="prénom" value="<?php echo $identity->firstName ?>">
@@ -62,7 +62,7 @@ if ($idUser) {
                         <p>status : <?php echo $formation->diplomastatus ?></p>
                     </div>
                     <div class="experience">
-                        <h3>Mes expérience :</h3>
+                        <h3>Mes expériences :</h3>
                         <p>entreprise : <?php echo $experience->peName ?> </p>
                         <p>lieux : <?php echo $experience->peLocation ?> </p>
                         <p>poste : <?php echo $experience->pePositionHeld ?> </p>
