@@ -32,7 +32,6 @@ get_header();
 
 
         <div id="response_formation">
-
             <div>
                 <input type="text"  placeholder="nom de l'école" name="school[]">
                 <input type="text" placeholder="adresse de l'école" name="dip_location[]">
@@ -42,10 +41,7 @@ get_header();
                 <input type="date" placeholder="date de debut" name="dip_start[]">
                 <span>date de fin</span>
                 <input type="date" placeholder="date de fin" name="dip_end[]">
-
             </div>
-
-
         </div>
 
             <div class="span-div">
