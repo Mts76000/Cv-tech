@@ -53,8 +53,14 @@ async function GetDetailUser() {
         tel.innerHTML = "telephone : " + data.user.phoneNumber;
         Container.appendChild(tel);
 
+    data.other.forEach(function (other) {
+        const description = document.createElement('p');
+        if (other.otherDetails.length > 0) {
+            description.innerHTML = "Description : " + other.otherDetails;
+            Container.appendChild(description);
+        }
 
-
+    });
 
 
         const titre2 = document.createElement('h3');

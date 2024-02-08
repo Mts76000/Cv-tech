@@ -54,7 +54,7 @@ if(!empty($_GET['id'])) {
     $languages_data = array();
     recupDetail($wpdb, 'language', $idResume, $languages, $languages_data);
 
-        require('fpdf/fpdf.php');
+//        require('fpdf/fpdf.php');
 
         $cv_data = array(
             'numero_telephone' => $user->phoneNumber,
