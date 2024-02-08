@@ -56,7 +56,7 @@ async function GetDetailUser() {
     data.other.forEach(function (other) {
         const description = document.createElement('p');
         if (other.otherDetails.length > 0) {
-            description.innerHTML = "Description :" + other.otherDetails;
+            description.innerHTML = "Description : " + other.otherDetails;
             Container.appendChild(description);
         }
 

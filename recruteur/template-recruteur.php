@@ -6,7 +6,7 @@
 
 require('../vendor/autoload.php');
 
-//use JasonGrimes\Paginator;
+use JasonGrimes\Paginator;
 
 
 
@@ -86,7 +86,7 @@ get_header();
 
 
                 $totalItems = $total_identity;
-                $itemsPerPage = 50;
+                $itemsPerPage = 5;
                 $currentPage = 1;
 
                 if(!empty($_GET['paged'])) {
@@ -97,7 +97,7 @@ get_header();
 
                 $urlPattern = path('recruteur'). '?paged=(:num)';
 
-                //$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+                $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
                 $table_name = $wpdb->prefix . 'identity';
                 $query = $wpdb->prepare("SELECT * FROM $table_name WHERE status = %d LIMIT %d OFFSET %d", 0, $itemsPerPage, $offset);
@@ -117,7 +117,7 @@ get_header();
                         echo '<a href="#">' . '<i class="fa-solid fa-trash" style="color: red" data-post-id="' . $row->id . '"></i>' . ' </a></td>';
                         echo '</tr>';
                         include 'modal-contact.php';
-                        debug($row);
+
                     }
                 } else {
                     echo '<tr><td colspan="3">Aucun résultat trouvé</td></tr>';
