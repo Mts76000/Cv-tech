@@ -34,16 +34,7 @@ if (is_user_logged_in()) {
 
         <div id="response_formation">
             <div>
-<<<<<<< HEAD
-                <input type="text"  placeholder="nom de l'école" name="school[]">
-                <input type="text" placeholder="adresse de l'école" name="dip_location[]">
-                <input type="text" placeholder="nom du diplome" name="diplome[]">
-                <input type="text" placeholder="status" name="status[]">
-                <span>date de debut</span>
-                <input type="date" placeholder="date de debut" name="dip_start[]">
-                <span>date de fin</span>
-                <input type="date" placeholder="date de fin" name="dip_end[]">
-=======
+
                 <input type="text"  placeholder="Nom de l'école" name="school[]">
                 <input type="text" placeholder="Adresse de l'école" name="dip_location[]">
                 <input type="text" placeholder="Nom du diplôme" name="diplome[]">
@@ -53,7 +44,6 @@ if (is_user_logged_in()) {
                 <span>Date de fin</span>
                 <input type="date" placeholder="Date de fin" name="dip_end[]">
 
->>>>>>> fdf68fd4eec82859f5102f9c23f6df50b16c6f45
             </div>
         </div>
 
