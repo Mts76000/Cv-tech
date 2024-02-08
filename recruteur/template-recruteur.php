@@ -6,7 +6,7 @@
 
 require('../vendor/autoload.php');
 
-use JasonGrimes\Paginator;
+//use JasonGrimes\Paginator;
 
 
 
@@ -86,7 +86,7 @@ get_header();
 
 
                 $totalItems = $total_identity;
-                $itemsPerPage = 5;
+                $itemsPerPage = 50;
                 $currentPage = 1;
 
                 if(!empty($_GET['paged'])) {
@@ -97,7 +97,7 @@ get_header();
 
                 $urlPattern = path('recruteur'). '?paged=(:num)';
 
-                $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+                //$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
                 $table_name = $wpdb->prefix . 'identity';
                 $query = $wpdb->prepare("SELECT * FROM $table_name WHERE status = %d LIMIT %d OFFSET %d", 0, $itemsPerPage, $offset);
@@ -111,12 +111,13 @@ get_header();
                         echo '<tr>';
                         echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . $row->lastName . '</td>';
                         echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . $row->firstName . '</td>';
-                        echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . '09/02/2024' . '</td>';
+                        echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '<?php $row->id ?>">' . '09/02/2024' . '</td>';
                         echo '<td class="action"> <a class="js_modal_contact"  href="#" data-post-id="' . $row->id . '"><i class="fa-solid fa-address-book" style="color: orange"></i>' . ' </a>';
-                        echo ' <a href="#">' . '<i class="fa-solid fa-file-pdf" style="color: #02ab6c"></i>' . ' </a>';
+                        echo ' <a href="'. path('pdf') . '?id=' . $row->id . '">' . '<i class="fa-solid fa-file-pdf" style="color: #02ab6c"></i>' . ' </a>';
                         echo '<a href="#">' . '<i class="fa-solid fa-trash" style="color: red" data-post-id="' . $row->id . '"></i>' . ' </a></td>';
                         echo '</tr>';
                         include 'modal-contact.php';
+                        debug($row);
                     }
                 } else {
                     echo '<tr><td colspan="3">Aucun résultat trouvé</td></tr>';

@@ -46,8 +46,8 @@ if (is_user_logged_in()) {
 
 
         <div id="response_formation">
-
             <div>
+
                 <input type="text"  placeholder="Nom de l'école" name="school[]">
                 <input type="text" placeholder="Adresse de l'école" name="dip_location[]">
                 <input type="text" placeholder="Nom du diplôme" name="diplome[]">
@@ -58,8 +58,6 @@ if (is_user_logged_in()) {
                 <input type="date" placeholder="Date de fin" name="dip_end[]">
 
             </div>
-
-
         </div>
 
             <div class="span-div">
