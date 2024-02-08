@@ -155,33 +155,42 @@ if (btn_add_formation !== null) {
         const input1 = document.createElement('input');
         input1.type = 'text';
         input1.name = 'school[]'
-        input1.placeholder = 'school'
+        input1.placeholder = 'Nom de l\'école'
         const input2 = document.createElement('input');
         input2.type = 'text';
         input2.name = 'dip_location[]'
-        input2.placeholder = 'dip_location'
+        input2.placeholder = 'Adresse de l\'école'
         const input3 = document.createElement('input');
         input3.type = 'text';
         input3.name = 'diplome[]'
-        input3.placeholder = 'diplome'
+        input3.placeholder = 'Nom du diplôme'
         const input4 = document.createElement('input');
         input4.type = 'text';
         input4.name = 'status[]'
-        input4.placeholder = 'status'
+        input4.placeholder = 'Status'
+        const span1 = document.createElement('span')
+        span1.textContent = 'Date de début'
         const input5 = document.createElement('input');
         input5.type = 'date';
         input5.name = 'dip_start[]'
-        input5.placeholder = 'dip_start'
+        input5.placeholder = 'Date de début'
+        const span2 = document.createElement('span')
+        span2.textContent = 'Date de fin'
         const input6 = document.createElement('input');
         input6.type = 'date';
         input6.name = 'dip_end[]'
-        input6.placeholder = 'dip_end'
+        input6.placeholder = 'Date de fin'
+        const titre2 = document.createElement('h2')
+        titre2.textContent = 'Formations'
 
+        div.appendChild(titre2);
         div.appendChild(input1);
         div.appendChild(input2);
         div.appendChild(input3);
         div.appendChild(input4);
+        div.appendChild(span1);
         div.appendChild(input5);
+        div.appendChild(span2);
         div.appendChild(input6);
         response_formation.append(div);
     });
@@ -195,26 +204,35 @@ if (btn_add_experience !== null) {
         const input1 = document.createElement('input');
         input1.type = 'text';
         input1.name = 'experience[]'
-        input1.placeholder = 'experience'
+        input1.placeholder = 'Nom entreprise'
         const input2 = document.createElement('input');
         input2.type = 'text';
         input2.name = 'exp_location[]'
-        input2.placeholder = 'exp_location'
+        input2.placeholder = 'Lieu'
         const input3 = document.createElement('input');
         input3.type = 'text';
         input3.name = 'poste'
-        input3.placeholder = 'poste'
+        input3.placeholder = 'Poste'
+        const span3 = document.createElement('span')
+        span3.textContent = 'Date de début'
         const input4 = document.createElement('input');
         input4.type = 'date';
         input4.name = 'exp_start[]'
+        const span4 = document.createElement('span')
+        span4.textContent = 'Date de fin'
         const input5 = document.createElement('input');
         input5.type = 'date';
         input5.name = 'exp_end[]'
+        const titre1 = document.createElement('h2')
+        titre1.textContent = 'Expériences'
 
+        div.appendChild(titre1);
         div.appendChild(input1);
         div.appendChild(input2);
         div.appendChild(input3);
+        div.appendChild(span3);
         div.appendChild(input4);
+        div.appendChild(span4);
         div.appendChild(input5);
         response_experience.append(div);
     });
