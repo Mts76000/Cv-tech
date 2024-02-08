@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Template Name: pdf
+ */
+
+
+
 require('fpdf/fpdf.php');
 
 $cvtech = array(
