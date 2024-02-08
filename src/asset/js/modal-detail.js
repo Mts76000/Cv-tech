@@ -25,6 +25,10 @@ async function GetDetailUser() {
         loaderDetail.classList.add("loader-none");
 
 
+        const separator = document.createElement('div');
+        separator.classList.add("separator");
+
+
         const titre1 = document.createElement('h3');
         titre1.innerHTML = "Info personnel: ";
         Container.appendChild(titre1);
@@ -49,9 +53,14 @@ async function GetDetailUser() {
         tel.innerHTML = "telephone : " + data.user.phoneNumber;
         Container.appendChild(tel);
 
+
+
+
+
         const titre2 = document.createElement('h3');
         titre2.innerHTML = "Diplômes : ";
         Container.appendChild(titre2);
+
 
 
         data.diplome.forEach(function(diplome) {
@@ -67,9 +76,7 @@ async function GetDetailUser() {
             status_diplome.innerHTML = "Statut : " + diplome.diplomastatus;
             Container.appendChild(status_diplome);
 
-            const separator = document.createElement('div');
-            separator.classList.add("separator");
-            Container.appendChild(separator);
+
 
         });
 
@@ -86,12 +93,12 @@ async function GetDetailUser() {
             post_experience.innerHTML = "poste : " + experience.pePositionHeld;
              Container.appendChild(post_experience);
 
-            const separator = document.createElement('div');
-            separator.classList.add("separator");
-           Container.appendChild(separator);
 
-        });   
-        
+
+        });
+
+
+
         const titre4 = document.createElement('h3');
         titre4.innerHTML = "Hobbies : ";
         Container.appendChild(titre4);
@@ -101,11 +108,66 @@ async function GetDetailUser() {
             nom_hobbies.innerHTML =  hobbies.hobbieName;
             Container.appendChild(nom_hobbies);
 
-            const separator = document.createElement('div');
-            separator.classList.add("separator");
-           Container.appendChild(separator);
+
 
         });
+
+        const titre5 = document.createElement('h3');
+        titre5.innerHTML = "Permis : ";
+        Container.appendChild(titre5);
+
+        data.driving.forEach(function(driving) {
+            const nom_permis = document.createElement('p');
+            nom_permis.innerHTML = "Permi : " + driving.dlName;
+            Container.appendChild(nom_permis);
+
+
+        });
+
+
+
+
+        const titre6 = document.createElement('h3');
+        titre6.innerHTML = "Soft Skills : ";
+        Container.appendChild(titre6);
+
+        data.soft.forEach(function(soft) {
+            const nom_soft = document.createElement('p');
+            nom_soft.innerHTML =  soft.ssName;
+            Container.appendChild(nom_soft);
+
+
+        });
+
+
+
+        const titre7 = document.createElement('h3');
+        titre7.innerHTML = "Hard Skills : ";
+        Container.appendChild(titre7);
+
+        data.hard.forEach(function(hard) {
+            const nom_hard = document.createElement('p');
+            nom_hard.innerHTML =  hard.hsName;
+            Container.appendChild(nom_hard);
+
+
+        });
+
+   const titre8 = document.createElement('h3');
+        titre8.innerHTML = "Language : ";
+        Container.appendChild(titre8);
+
+        data.language.forEach(function(language) {
+            const nom_language = document.createElement('p');
+            nom_language.innerHTML =  language.language;
+            Container.appendChild(nom_language);
+
+
+        });
+
+
+
+
 
     } catch (error) {
         console.error('Erreur lors de la conversion de la réponse JSON :', error);

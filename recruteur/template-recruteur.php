@@ -4,12 +4,19 @@
  */
 
 
+require('../vendor/autoload.php');
+
+use JasonGrimes\Paginator;
+
+
+
 if (!current_user_can('administrator') && !current_user_can('recruteur')) {
     wp_redirect(home_url());
     exit;
 }
 
 get_header();
+
 
 ?>
 
@@ -19,13 +26,14 @@ get_header();
 
             <?php
             global $wpdb;
-            $table_name = $wpdb->prefix . 'identity';
-            $count_query = "SELECT COUNT(id) AS total FROM $table_name";
-            $total_identity = $wpdb->get_var($count_query);
+            $table_name_identity = $wpdb->prefix . 'identity';
+            $count_query_identity = $wpdb->prepare("SELECT COUNT(id) AS total FROM $table_name_identity WHERE status = %d", 0);
+            $total_identity = $wpdb->get_var($count_query_identity);
 
-            $table_name = $wpdb->prefix . 'users';
-            $count_query = "SELECT COUNT(id) AS total FROM $table_name";
-            $total_users = $wpdb->get_var($count_query);
+            $table_name_users = $wpdb->prefix . 'users';
+            $count_query_users = "SELECT COUNT(id) AS total FROM $table_name_users";
+            $total_users = $wpdb->get_var($count_query_users);
+
             ?>
 
             <div class="big">
@@ -75,17 +83,35 @@ get_header();
                 <tbody>
 
                 <?php
+
+
+                $totalItems = $total_identity;
+                $itemsPerPage = 5;
+                $currentPage = 1;
+
+                if(!empty($_GET['paged'])) {
+                    $currentPage = $_GET['paged'];
+                }
+
+                $offset = ($currentPage - 1) * $itemsPerPage;
+
+                $urlPattern = path('recruteur'). '?paged=(:num)';
+
+                $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+
                 $table_name = $wpdb->prefix . 'identity';
-                $query = "SELECT * FROM $table_name WHERE status = 0;";
+                $query = $wpdb->prepare("SELECT * FROM $table_name WHERE status = %d LIMIT %d OFFSET %d", 0, $itemsPerPage, $offset);
                 $results = $wpdb->get_results($query);
-                //debug($results);
+
+
+
 
                 if (!empty($results)) {
                     foreach ($results as $row) {
                         echo '<tr>';
                         echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . $row->lastName . '</td>';
                         echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . $row->firstName . '</td>';
-                        echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . '07/04/2023' . '</td>';
+                        echo '<td  class="js_modal_detail" data-post-id="' . $row->id . '">' . '09/02/2024' . '</td>';
                         echo '<td class="action"> <a class="js_modal_contact"  href="#" data-post-id="' . $row->id . '"><i class="fa-solid fa-address-book" style="color: orange"></i>' . ' </a>';
                         echo ' <a href="#">' . '<i class="fa-solid fa-file-pdf" style="color: #02ab6c"></i>' . ' </a>';
                         echo '<a href="#">' . '<i class="fa-solid fa-trash" style="color: red" data-post-id="' . $row->id . '"></i>' . ' </a></td>';
@@ -99,7 +125,9 @@ get_header();
 
                 </tbody>
             </table>
-
+<div class="pagination-box">
+            <?php echo $paginator; ?>
+</div>
         </div>
     </section>
 
