@@ -1,0 +1,193 @@
+#intro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#intro .wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#intro .text{
+  width: 49%;
+}
+
+#intro .img{
+  width: 49%;
+}
+
+#intro .img img{
+  width: 100%;
+}
+
+#intro .btn-intro{
+  display: flex;
+  gap: 1rem;
+}
+#intro .btn-intro a{
+  padding: 1rem;
+  background-color: var(--bleu);
+  color: white;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+  width: 33%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.5S ease-in-out;
+}
+
+#intro .btn-intro a:hover{
+background-color: var(--orange);
+}
+
+#intro .text p{
+  color: var(--gris);
+  line-height: 1.9 ;
+  font-size: 18px;
+  padding: 1.5rem 0rem;
+}
+
+#intro .text h1 {
+  font-size: 45px;
+  font-weight: 600;
+  color: #13287e
+}
+
+
+//info
+
+#info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#info .wrap{
+  display: flex;
+}
+
+#info .text h2{
+  font-size: 30px;
+  font-weight: 600;
+  color: #13287e;
+  margin-bottom: 2rem;
+}
+#info .list{
+  display: flex;
+  flex-direction: column;
+}
+
+#info .one-list{
+  display: flex;
+align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0rem;
+
+}
+
+#info .one-list p{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#info .text {
+  width: 49%;
+  display: flex;
+justify-content: center;
+  flex-direction: column;
+}
+
+#info .one-list img {
+  width: 30px;
+  height: 30px;
+}
+
+#info .img{
+  width: 49%;
+}
+
+#info .img img{
+  width: 100%;
+}
+
+
+/* Responsive  */
+
+@media screen and (max-width: 1000px) {
+#intro .wrap{
+  flex-direction: column-reverse;
+}
+
+  #intro{
+    margin-top: 0.5rem;
+    height: 100%;
+    width: 100%;
+  }
+  #intro .img {
+    width: 100%;
+  }
+
+  #intro .text{
+    width: 100%;
+text-align: center;
+
+  }
+
+  #intro .btn-intro {
+    justify-content: center;
+  }
+
+  #info{
+    margin-top: 2rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  #info .wrap{
+    flex-direction: column-reverse;
+  }
+
+  #info .list {
+    align-items: center;
+  }
+
+  #info .img {
+    width: 100%;
+  }
+
+  #info .text{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+
+  }
+}
+
+
+@media screen and (max-width: 700px){
+  #info .one-list img {
+  display: none;
+  }
+}
+
+
+@media screen and ( max-width: 500px ){
+  #intro .btn-intro {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    a{
+      width: 80%;
+    }
+  }
+
+  #intro .text{
+    padding: 1rem;
+  }
+
+  #info .text{
+    padding: 1rem;
+  }
+}

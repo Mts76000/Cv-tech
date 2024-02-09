@@ -1,0 +1,119 @@
+/* Style général pour le formulaire */
+
+#theformulaire {
+
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+
+  h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    background-color: var(--bleu);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: var(--orange);
+  }
+
+  button {
+    background-color: var(--bleu);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+  }
+
+  button:hover {
+    background-color: var(--orange);
+  }
+
+  #response_formation div,
+  #response_experience div,
+  #response_hardskills div,
+  #response_softskills div,
+  #response_reseaux div,
+  #response_language div,
+  #response_hobbies div,
+  #response_autre div {
+    margin-bottom: 15px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+}
+
+
+.span{
+  color: red;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.display-span{
+  display: none;
+  height: 0;
+}
+
+
+#suc{
+  display: none;
+  background: url("../img/bg.png");
+  .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+
+  p{
+    background-color: #90EE90;
+    padding: 1.5rem;
+    border-radius: 5px;
+    color: #2E8B57;
+  }
+
+}
+#suc.test1{
+  display: block;
+}
+
+
+textarea{
+  resize: none;
+}
+
+

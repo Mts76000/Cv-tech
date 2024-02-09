@@ -28,7 +28,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   height:80px;
   width:100%;
   display: flex;
-
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.20);
 }
 
 #header .wrap{
@@ -38,6 +38,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   padding: 0 1rem;
 }
 
+
+
 #header nav ul{
   display: flex;
   align-items: center;
@@ -46,9 +48,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 #header nav a{
   color: black;
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   transition:all 0.2s ease-in-out;
   padding: 26px 0;
 }
@@ -59,11 +61,11 @@ color: var(--bleu);
 
 
 #header .btn-header{
-  padding: 0.5rem;
+  padding: 0.7rem;
   background-color: var(--bleu);
   border-radius: 5px;
   transition:  0.5s ease-in-out;
-
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
 
@@ -139,7 +141,7 @@ background-color: var(--orange);
 
 /* Responsive  */
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1000px) {
   #header .desk {
     display: none;
   }
@@ -147,7 +149,6 @@ background-color: var(--orange);
   #header .mobile{
     display: block;
   }
-
 
 }
 

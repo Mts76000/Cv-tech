@@ -15,13 +15,16 @@
     <div class="wrap">
             <nav>
                 <ul>
-                    <li><a href="">Mentions légales</a></li>
-                    <li><a href="">FAQ</a></li>
-                    <li><a href="">Contactez-nous</a></li>
+                    <li><a href="<?php echo path('/mention'); ?>">Mentions légales</a></li>
+                    <li><a href="<?php echo path('/faq'); ?>">FAQ</a></li>
                 </ul>
             </nav>
     </div>
 </footer>
+
+<script>
+    var isUserLoggedIn = <?php echo is_user_logged_in() ? 'true' : 'false'; ?>;
+</script>
 
 <?php wp_footer(); ?>
 

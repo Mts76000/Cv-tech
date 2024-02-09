@@ -1,0 +1,175 @@
+#tableau .wrap{
+  padding: 3rem 0rem;
+}
+
+#tableau .big{
+  display: flex;
+  justify-content: space-between;
+}
+
+#tableau .box-nb-candidature{
+  padding: 1.5rem;
+  border-radius: 5px;
+  width: 30%;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#tableau .box-nb-candidature .titre{
+  color: #616670;
+}
+
+#tableau .box-nb-candidature .left{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#tableau .box-nb-candidature .nb{
+  padding: 1rem 0rem 0rem;
+  font-size: 2rem;
+}
+
+#tableau .box-nb-candidature .right .i{
+  background:#FFAD66 ;
+  padding: 1rem;
+  border-radius: 100px;
+}
+#tableau .box-nb-candidature .right .user{
+  background:var(--bleu) ;
+
+}
+
+
+#tableau .box-nb-candidature i{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 30px;
+  height: 30px;
+}
+
+#tableau .heure{
+  justify-content: center;
+  align-items: center;
+
+
+}
+#tableau .box-nb-candidature .date-heure{
+  font-size: 20px;
+  text-align: center;
+}
+#tableau .box-nb-candidature .date-heure p{
+  padding: 0.5rem;
+}
+
+
+table {
+  margin-top: 2rem;
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: white;
+  border-radius: 10px
+
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+thead{
+  border-radius: 10px;
+
+}
+
+
+
+tr:hover {
+  background-color: #ddd;
+}
+
+td {
+  color: #555;
+}
+
+
+.action{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+
+
+.separator{
+  height: 2px;
+  width: 50%;
+  background:var(--bleu);
+}
+
+
+.pagination-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pagination {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.pagination li {
+  margin: 0 6px;
+}
+
+.pagination li.active a {
+  background: var(--orange);
+}
+
+.pagination li a {
+  --size: 32px;
+  border-radius: 6px;
+  background: var(--bleu);
+  max-width: auto;
+  min-width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 6px;
+  text-decoration: none;
+  color: #f3f3f3; /* Couleur du texte */
+  /* Styles de survol */
+  transition: background 0.3s ease;
+}
+
+.pagination li a:hover {
+  background: var(--orange);
+}
+
+
+@media  screen and (max-width: 1000px) {
+
+  #tableau .big{
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  #tableau .box-nb-candidature{
+    width: 100%;
+  }
+}
